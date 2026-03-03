@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grupo Aro - Listado de Precios | Asesoría Empresarial RD</title>
-    
+    <title>Grupo Aro - Listado de Precios | Asesoría Empresarial Estratégica</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <style>
         :root {
             --primary: #D4A574;
@@ -128,7 +128,35 @@
             flex-shrink: 0;
         }
 
-        /* Pricing Section */
+        /* Section Label */
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: white;
+            background: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        .section-title-main {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        /* Pricing Grid */
         .pricing-grid {
             display: grid;
             gap: 3rem;
@@ -169,6 +197,13 @@
             color: var(--secondary);
         }
 
+        .category-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            margin-top: 0.3rem;
+            font-style: italic;
+        }
+
         .pricing-options {
             display: grid;
             gap: 1.5rem;
@@ -195,7 +230,23 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.6rem;
             color: var(--text-dark);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .package-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-badge {
+            font-size: 0.85rem;
+            color: var(--secondary);
+            background: rgba(42, 63, 84, 0.08);
+            padding: 0.25rem 0.8rem;
+            border-radius: 100px;
+            font-weight: 500;
         }
 
         .pricing-info p {
@@ -204,15 +255,27 @@
             margin-bottom: 1rem;
         }
 
+        .includes-label,
+        .entregables-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            margin-top: 1rem;
+        }
+
         .includes {
             list-style: none;
             display: grid;
-            gap: 0.5rem;
+            gap: 0.4rem;
+            margin-bottom: 0.5rem;
         }
 
         .includes li {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 0.5rem;
             color: var(--text-gray);
             font-size: 0.95rem;
@@ -222,6 +285,99 @@
             content: '•';
             color: var(--primary);
             font-size: 1.5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .entregables {
+            list-style: none;
+            display: grid;
+            gap: 0.4rem;
+        }
+
+        .entregables li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .entregables li::before {
+            content: '✦';
+            color: var(--primary-dark);
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        /* Ideal para */
+        .ideal-para {
+            margin-top: 1rem;
+            padding: 0.8rem 1rem;
+            background: rgba(212, 165, 116, 0.1);
+            border-left: 3px solid var(--primary);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .ideal-para-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .ideal-para ul {
+            list-style: none;
+            display: grid;
+            gap: 0.3rem;
+        }
+
+        .ideal-para ul li {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .ideal-para ul li::before {
+            content: '—';
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Consultant note */
+        .consultant-note {
+            background: rgba(42, 63, 84, 0.05);
+            border: 1px solid rgba(42, 63, 84, 0.15);
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .consultant-note::before {
+            content: 'ℹ';
+            font-size: 1.2rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Exclude note */
+        .exclude-note {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            font-style: italic;
+            margin-top: 0.8rem;
+            padding: 0.5rem 0.8rem;
+            background: rgba(107, 114, 128, 0.08);
+            border-radius: 6px;
         }
 
         .price-tag {
@@ -229,6 +385,7 @@
             flex-direction: column;
             align-items: flex-end;
             text-align: right;
+            min-width: 150px;
         }
 
         .price {
@@ -252,8 +409,8 @@
             margin-top: 0.5rem;
         }
 
-        /* Premium Package */
-        .premium-package {
+        /* Programa Anual — standalone premium block */
+        .programa-anual {
             background: linear-gradient(135deg, var(--secondary) 0%, #1a2838 100%);
             padding: 3rem;
             border-radius: 20px;
@@ -263,7 +420,7 @@
             overflow: hidden;
         }
 
-        .premium-package::before {
+        .programa-anual::before {
             content: 'PREMIUM';
             position: absolute;
             top: 20px;
@@ -276,69 +433,120 @@
             letter-spacing: 1px;
         }
 
-        .premium-package h2 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+        .programa-anual-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        .premium-package p {
-            font-size: 1.1rem;
+        .programa-anual-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(212, 165, 116, 0.25);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .programa-anual h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+        }
+
+        .programa-anual-subtitle {
+            font-size: 0.95rem;
+            color: rgba(212, 165, 116, 0.9);
+            margin-top: 0.2rem;
+        }
+
+        .programa-anual > p {
+            font-size: 1.05rem;
             color: rgba(255, 255, 255, 0.85);
             margin-bottom: 2rem;
             line-height: 1.8;
         }
 
-        .premium-features {
+        .programa-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin-bottom: 2rem;
         }
 
-        .premium-feature {
-            display: flex;
-            align-items: start;
-            gap: 1rem;
-            padding: 1.5rem;
+        .programa-feature {
+            padding: 1.2rem 1.5rem;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             border-left: 3px solid var(--primary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            color: rgba(255,255,255,0.85);
+            font-size: 0.95rem;
         }
 
-        .premium-feature-icon {
-            font-size: 1.8rem;
+        .programa-feature::before {
+            content: '✦';
+            color: var(--primary);
             flex-shrink: 0;
+            margin-top: 0.15rem;
         }
 
-        .premium-feature h3 {
-            font-size: 1.2rem;
+        .programa-bottom {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .programa-ideal {
+            padding: 1.2rem 1.5rem;
+            background: rgba(255,255,255,0.06);
+            border-radius: 12px;
+        }
+
+        .programa-ideal-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
             margin-bottom: 0.5rem;
         }
 
-        .premium-feature p {
+        .programa-ideal p {
+            color: rgba(255,255,255,0.75);
             font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin: 0;
+            line-height: 1.6;
         }
 
-        .premium-price {
+        .programa-price-box {
             text-align: center;
-            padding: 2rem;
+            padding: 2rem 2.5rem;
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            margin-top: 2rem;
+            min-width: 220px;
         }
 
-        .premium-price .price {
-            font-size: 4rem;
+        .programa-price-box .price {
+            font-size: 3.5rem;
             color: white;
         }
 
-        .premium-price .price-note {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.1rem;
-            margin-top: 1rem;
+        .programa-price-box .price-period {
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .programa-price-box .price-note {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
         }
 
         /* Custom Packages */
@@ -428,7 +636,7 @@
 
         .info-box li {
             display: flex;
-            align-items: start;
+            align-items: flex-start;
             gap: 0.8rem;
             color: var(--text-gray);
             line-height: 1.6;
@@ -511,8 +719,12 @@
                 text-align: left;
             }
 
-            .premium-features {
+            .programa-bottom {
                 grid-template-columns: 1fr;
+            }
+
+            .programa-price-box {
+                min-width: auto;
             }
 
             .contact-info {
@@ -525,7 +737,7 @@
             body {
                 background: white;
             }
-            
+
             .cta-button {
                 display: none;
             }
@@ -534,6 +746,7 @@
 </head>
 <body>
     <div class="container">
+
         <!-- Header -->
         <div class="header">
             <div class="logo">GRUPO <span>ARO</span></div>
@@ -560,355 +773,325 @@
             </ul>
         </div>
 
-        <!-- Service 1: Lanzamiento de Proyectos -->
-        <div class="pricing-grid">
-            <div class="service-category">
-                <div class="category-header">
-                    <div class="category-icon">🚀</div>
-                    <h2 class="category-title">Lanzamiento de Proyectos</h2>
-                </div>
-                <div class="pricing-options">
-                    <div class="pricing-item">
-                        <div class="pricing-info">
-                            <h3>Paquete Starter</h3>
-                            <p>Ideal para emprendedoras que están iniciando su proyecto desde cero y necesitan una guía estratégica clara.</p>
-                            <ul class="includes">
-                                <li>Análisis de mercado y competencia</li>
-                                <li>Desarrollo de modelo de negocio</li>
-                                <li>Plan de negocios ejecutivo</li>
-                                <li>Estrategia de go-to-market</li>
-                                <li>4 sesiones de consultoría (8 horas)</li>
-                                <li>Duración: 4-6 semanas</li>
-                            </ul>
-                        </div>
-                        <div class="price-tag">
-                            <div class="price">$3,500</div>
-                            <div class="price-period">Pago único</div>
-                        </div>
-                    </div>
-
-                    <div class="pricing-item">
-                        <div class="pricing-info">
-                            <h3>Paquete Launch Pro</h3>
-                            <p>Acompañamiento integral desde la conceptualización hasta el lanzamiento exitoso al mercado.</p>
-                            <ul class="includes">
-                                <li>Todo lo del Paquete Starter</li>
-                                <li>Desarrollo de identidad de marca</li>
-                                <li>Estrategia de marketing de lanzamiento</li>
-                                <li>Plan financiero y proyecciones</li>
-                                <li>Preparación de pitch para inversionistas</li>
-                                <li>10 sesiones de consultoría (20 horas)</li>
-                                <li>Duración: 8-12 semanas</li>
-                            </ul>
-                        </div>
-                        <div class="price-tag">
-                            <div class="price">$7,800</div>
-                            <div class="price-period">2 pagos de $3,900</div>
-                        </div>
-                    </div>
-                </div>
+        <!-- SECTION I -->
+        <div class="service-category" style="margin-bottom: 3rem;">
+            <div class="section-label">
+                <span class="section-number">I</span>
+                <span class="section-title-main">Línea de Asesoría Estratégica para Emprendedoras y Empresas</span>
             </div>
 
-            <!-- Service 2: Relanzamiento & Rebranding -->
-            <div class="service-category">
-                <div class="category-header">
-                    <div class="category-icon">📈</div>
-                    <h2 class="category-title">Relanzamiento & Rebranding</h2>
-                </div>
-                <div class="pricing-options">
-                    <div class="pricing-item">
-                        <div class="pricing-info">
-                            <h3>Refresh Estratégico</h3>
-                            <p>Actualización de marca y estrategia para negocios establecidos que buscan renovarse.</p>
-                            <ul class="includes">
-                                <li>Auditoría de marca y posicionamiento</li>
-                                <li>Análisis de mercado actualizado</li>
-                                <li>Estrategia de rebranding</li>
-                                <li>Plan de comunicación del cambio</li>
-                                <li>6 sesiones de consultoría (12 horas)</li>
-                                <li>Duración: 6-8 semanas</li>
-                            </ul>
-                        </div>
-                        <div class="price-tag">
-                            <div class="price">$4,500</div>
-                            <div class="price-period">Pago único o 2 cuotas</div>
-                        </div>
-                    </div>
+            <div class="pricing-options">
 
-                    <div class="pricing-item">
-                        <div class="pricing-info">
-                            <h3>Transformación Total</h3>
-                            <p>Relanzamiento completo con nueva identidad, estrategia y presencia en el mercado.</p>
-                            <ul class="includes">
-                                <li>Todo lo del Refresh Estratégico</li>
-                                <li>Rediseño completo de identidad visual</li>
-                                <li>Estrategia digital y redes sociales</li>
-                                <li>Campaña de relanzamiento 360°</li>
-                                <li>Plan de retención de clientes actuales</li>
-                                <li>12 sesiones de consultoría (24 horas)</li>
-                                <li>Duración: 10-14 semanas</li>
-                            </ul>
+                <!-- Paquete Starter -->
+                <div class="pricing-item">
+                    <div class="pricing-info">
+                        <h3>Paquete Starter</h3>
+                        <div class="package-meta">
+                            <span class="meta-badge">Para emprendedoras en etapa inicial</span>
+                            <span class="meta-badge">4–6 semanas</span>
+                            <span class="meta-badge">4 sesiones · 8 horas</span>
                         </div>
-                        <div class="price-tag">
-                            <div class="price">$9,500</div>
-                            <div class="price-period">3 pagos de $3,167</div>
-                        </div>
+                        <div class="includes-label">Incluye</div>
+                        <ul class="includes">
+                            <li>Análisis digital básico de mercado y competencia</li>
+                            <li>Validación inicial del modelo de negocio</li>
+                            <li>Definición de propuesta de valor</li>
+                            <li>Estrategia Go-to-Market inicial</li>
+                            <li>Roadmap de 90 días</li>
+                        </ul>
+                        <div class="entregables-label">Entregables</div>
+                        <ul class="entregables">
+                            <li>Documento de modelo de negocio estructurado</li>
+                            <li>Resumen estratégico ejecutivo</li>
+                            <li>Checklist de lanzamiento</li>
+                            <li>Grabación de sesiones (opcional)</li>
+                        </ul>
+                    </div>
+                    <div class="price-tag">
+                        <div class="price">$3,200</div>
+                        <div class="price-period">Pago único</div>
+                        <div class="price-note">USD</div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Service 3: Consultoría Ejecutiva -->
-            <div class="service-category">
-                <div class="category-header">
-                    <div class="category-icon">💼</div>
-                    <h2 class="category-title">Consultoría Ejecutiva</h2>
-                </div>
-                <div class="pricing-options">
-                    <div class="pricing-item">
-                        <div class="pricing-info">
-                            <h3>Sesiones Puntuales</h3>
-                            <p>Consultoría por hora para decisiones estratégicas específicas o resolución de problemas concretos.</p>
-                            <ul class="includes">
-                                <li>Sesión individual de 2 horas</li>
-                                <li>Análisis del caso específico</li>
-                                <li>Recomendaciones accionables</li>
-                                <li>Documento resumen ejecutivo</li>
-                                <li>Seguimiento vía email (1 semana)</li>
-                            </ul>
+                <!-- Paquete Launch Pro -->
+                <div class="pricing-item">
+                    <div class="pricing-info">
+                        <h3>Paquete Launch Pro</h3>
+                        <div class="package-meta">
+                            <span class="meta-badge">De conceptualización a lanzamiento</span>
+                            <span class="meta-badge">8–12 semanas</span>
+                            <span class="meta-badge">10 sesiones · 20 horas</span>
                         </div>
-                        <div class="price-tag">
-                            <div class="price">$400</div>
-                            <div class="price-period">Por sesión</div>
-                            <div class="price-note">$200/hora</div>
-                        </div>
+                        <div class="includes-label">Incluye</div>
+                        <ul class="includes">
+                            <li>Todo lo del Starter</li>
+                            <li>Desarrollo estratégico de identidad de marca</li>
+                            <li>Lineamientos de posicionamiento</li>
+                            <li>Estrategia de marketing de lanzamiento</li>
+                            <li>Preparación de pitch para inversionistas</li>
+                            <li>Simulación de presentación</li>
+                        </ul>
+                        <div class="entregables-label">Entregables</div>
+                        <ul class="entregables">
+                            <li>Documento estratégico completo</li>
+                            <li>Estructura de pitch deck</li>
+                            <li>Plan de lanzamiento 90 días</li>
+                            <li>Matriz de KPIs iniciales</li>
+                        </ul>
                     </div>
+                    <div class="price-tag">
+                        <div class="price">$6,800</div>
+                        <div class="price-period">Pago único</div>
+                        <div class="price-note">USD</div>
+                    </div>
+                </div>
 
-                    <div class="pricing-item">
-                        <div class="pricing-info">
-                            <h3>Iguala Mensual Ejecutiva</h3>
-                            <p>Acompañamiento continuo para ejecutivas que necesitan asesoría estratégica regular.</p>
-                            <ul class="includes">
-                                <li>8 horas de consultoría al mes</li>
-                                <li>4 sesiones estratégicas</li>
-                                <li>Disponibilidad vía WhatsApp</li>
-                                <li>Revisión de planes y decisiones</li>
-                                <li>Acceso prioritario a recursos</li>
-                                <li>Reporte mensual de progreso</li>
-                            </ul>
+                <!-- Refresh Estratégico -->
+                <div class="pricing-item">
+                    <div class="pricing-info">
+                        <h3>Refresh Estratégico</h3>
+                        <div class="package-meta">
+                            <span class="meta-badge">Para negocios establecidos que necesitan claridad</span>
+                            <span class="meta-badge">6–8 semanas</span>
+                            <span class="meta-badge">8 sesiones · 16 horas</span>
                         </div>
-                        <div class="price-tag">
-                            <div class="price">$2,800</div>
-                            <div class="price-period">Por mes</div>
-                            <div class="price-note">Mínimo 3 meses</div>
-                        </div>
+                        <div class="includes-label">Incluye</div>
+                        <ul class="includes">
+                            <li>Auditoría estratégica de marca y marketing</li>
+                            <li>Diagnóstico de posicionamiento</li>
+                            <li>Ajuste de narrativa</li>
+                            <li>Optimización del modelo comercial</li>
+                            <li>Recomendación de estructura digital</li>
+                        </ul>
+                        <div class="entregables-label">Entregables</div>
+                        <ul class="entregables">
+                            <li>Documento diagnóstico</li>
+                            <li>Plan de ajuste estratégico</li>
+                            <li>Plan de crecimiento 6 meses</li>
+                        </ul>
+                    </div>
+                    <div class="price-tag">
+                        <div class="price">$5,000</div>
+                        <div class="price-period">Pago único</div>
+                        <div class="price-note">USD</div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Service 4: Campañas Estratégicas -->
-            <div class="service-category">
-                <div class="category-header">
-                    <div class="category-icon">🎯</div>
-                    <h2 class="category-title">Campañas Estratégicas</h2>
-                </div>
-                <div class="pricing-options">
-                    <div class="pricing-item">
-                        <div class="pricing-info">
-                            <h3>Campaña Digital Enfocada</h3>
-                            <p>Diseño y supervisión de campaña digital con objetivos específicos y medibles.</p>
-                            <ul class="includes">
-                                <li>Definición de objetivos y KPIs</li>
-                                <li>Estrategia de campaña completa</li>
-                                <li>Plan de contenido (30 días)</li>
-                                <li>Recomendaciones de inversión</li>
-                                <li>3 sesiones de consultoría</li>
-                                <li>Análisis de resultados</li>
-                            </ul>
+                <!-- Transformación Total -->
+                <div class="pricing-item">
+                    <div class="pricing-info">
+                        <h3>Transformación Total</h3>
+                        <div class="package-meta">
+                            <span class="meta-badge">Relanzamiento completo</span>
+                            <span class="meta-badge">10–14 semanas</span>
+                            <span class="meta-badge">12 sesiones · 24 horas</span>
                         </div>
-                        <div class="price-tag">
-                            <div class="price">$2,500</div>
-                            <div class="price-period">Por campaña</div>
-                            <div class="price-note">Duración: 30 días</div>
-                        </div>
+                        <div class="includes-label">Incluye</div>
+                        <ul class="includes">
+                            <li>Todo lo del Refresh Estratégico</li>
+                            <li>Rediseño completo de identidad visual (conceptual estratégico)</li>
+                            <li>Estrategia digital y redes sociales</li>
+                            <li>Campaña de relanzamiento 360°</li>
+                            <li>Plan de retención de clientes</li>
+                            <li>Estrategia de reposicionamiento integral</li>
+                        </ul>
+                        <div class="entregables-label">Entregables</div>
+                        <ul class="entregables">
+                            <li>Plan maestro de relanzamiento</li>
+                            <li>Roadmap anual estratégico</li>
+                            <li>Framework de medición de resultados</li>
+                        </ul>
                     </div>
+                    <div class="price-tag">
+                        <div class="price">$9,500</div>
+                        <div class="price-period">Pago único</div>
+                        <div class="price-note">USD</div>
+                    </div>
+                </div>
 
-                    <div class="pricing-item">
-                        <div class="pricing-info">
-                            <h3>Campaña Integral 360°</h3>
-                            <p>Campaña multiplataforma con estrategia completa de marketing y comunicación.</p>
-                            <ul class="includes">
-                                <li>Todo lo de Campaña Digital</li>
-                                <li>Estrategia offline y online</li>
-                                <li>Coordinación con proveedores</li>
-                                <li>Gestión de relaciones públicas</li>
-                                <li>Plan de activaciones y eventos</li>
-                                <li>8 sesiones de consultoría</li>
-                                <li>Reportes semanales de progreso</li>
-                            </ul>
-                        </div>
-                        <div class="price-tag">
-                            <div class="price">$6,500</div>
-                            <div class="price-period">Por campaña</div>
-                            <div class="price-note">Duración: 60-90 días</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 5: Mentoría Empresarial -->
-            <div class="service-category">
-                <div class="category-header">
-                    <div class="category-icon">💡</div>
-                    <h2 class="category-title">Mentoría Empresarial</h2>
-                </div>
-                <div class="pricing-options">
-                    <div class="pricing-item">
-                        <div class="pricing-info">
-                            <h3>Programa Trimestral</h3>
-                            <p>Mentoría personalizada para emprendedoras en proceso de escalamiento.</p>
-                            <ul class="includes">
-                                <li>12 sesiones de mentoría (24 horas)</li>
-                                <li>Plan de desarrollo empresarial</li>
-                                <li>Revisión de metas mensuales</li>
-                                <li>Acceso a masterclasses exclusivas</li>
-                                <li>Networking con otras emprendedoras</li>
-                                <li>Recursos y templates personalizados</li>
-                            </ul>
-                        </div>
-                        <div class="price-tag">
-                            <div class="price">$4,200</div>
-                            <div class="price-period">3 meses</div>
-                            <div class="price-note">$1,400/mes</div>
-                        </div>
-                    </div>
-
-                    <div class="pricing-item">
-                        <div class="pricing-info">
-                            <h3>Programa Anual Intensivo</h3>
-                            <p>Acompañamiento completo durante un año para transformación empresarial profunda.</p>
-                            <ul class="includes">
-                                <li>48 sesiones de mentoría (96 horas)</li>
-                                <li>Plan estratégico anual completo</li>
-                                <li>Revisiones trimestrales profundas</li>
-                                <li>Acceso ilimitado a recursos</li>
-                                <li>Prioridad en eventos y workshops</li>
-                                <li>Introducción a inversionistas</li>
-                                <li>Certificado de programa completado</li>
-                            </ul>
-                        </div>
-                        <div class="price-tag">
-                            <div class="price">$14,500</div>
-                            <div class="price-period">12 meses</div>
-                            <div class="price-note">Ahorro de $2,300</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 6: Análisis & Growth -->
-            <div class="service-category">
-                <div class="category-header">
-                    <div class="category-icon">📊</div>
-                    <h2 class="category-title">Análisis & Growth</h2>
-                </div>
-                <div class="pricing-options">
-                    <div class="pricing-item">
-                        <div class="pricing-info">
-                            <h3>Diagnóstico Empresarial</h3>
-                            <p>Análisis profundo de tu negocio para identificar oportunidades de crecimiento.</p>
-                            <ul class="includes">
-                                <li>Auditoría completa del negocio</li>
-                                <li>Análisis FODA detallado</li>
-                                <li>Evaluación de procesos clave</li>
-                                <li>Benchmarking de competencia</li>
-                                <li>Reporte ejecutivo con hallazgos</li>
-                                <li>2 sesiones de presentación</li>
-                            </ul>
-                        </div>
-                        <div class="price-tag">
-                            <div class="price">$3,200</div>
-                            <div class="price-period">Proyecto único</div>
-                            <div class="price-note">Duración: 3-4 semanas</div>
-                        </div>
-                    </div>
-
-                    <div class="pricing-item">
-                        <div class="pricing-info">
-                            <h3>Plan de Crecimiento Completo</h3>
-                            <p>Estrategia integral de growth con implementación y seguimiento.</p>
-                            <ul class="includes">
-                                <li>Todo lo del Diagnóstico</li>
-                                <li>Plan de crecimiento a 12 meses</li>
-                                <li>Estrategias de optimización</li>
-                                <li>Plan de expansión/diversificación</li>
-                                <li>Proyecciones financieras</li>
-                                <li>8 sesiones de implementación</li>
-                                <li>Seguimiento trimestral (1 año)</li>
-                            </ul>
-                        </div>
-                        <div class="price-tag">
-                            <div class="price">$8,900</div>
-                            <div class="price-period">Proyecto + seguimiento</div>
-                            <div class="price-note">3 pagos de $2,967</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
-        <!-- Premium Package -->
-        <div class="premium-package">
-            <h2>Paquete VIP Transformación Total</h2>
-            <p>
-                Nuestro programa más completo para empresarias visionarias que buscan una transformación integral de su negocio con acompañamiento premium durante 6 meses.
-            </p>
-            <div class="premium-features">
-                <div class="premium-feature">
-                    <div class="premium-feature-icon">🎯</div>
-                    <div>
-                        <h3>Estrategia 360°</h3>
-                        <p>Plan estratégico completo para todas las áreas de tu negocio</p>
+        <!-- SECTION II -->
+        <div class="service-category" style="margin-bottom: 3rem;">
+            <div class="section-label">
+                <span class="section-number">II</span>
+                <span class="section-title-main">Consultorías Ejecutivas</span>
+            </div>
+
+            <div class="consultant-note">
+                Todas las sesiones ejecutivas son realizadas directamente por <strong>Wendolyn Rodríguez</strong>, previa cita y evaluación del caso.
+            </div>
+
+            <div class="pricing-options">
+
+                <!-- Sesiones Puntuales -->
+                <div class="pricing-item">
+                    <div class="pricing-info">
+                        <h3>Sesiones Puntuales</h3>
+                        <div class="package-meta">
+                            <span class="meta-badge">Sesión estratégica de 2 horas</span>
+                            <span class="meta-badge">200 USD / hora</span>
+                        </div>
+                        <div class="includes-label">Incluye</div>
+                        <ul class="includes">
+                            <li>Sesión estratégica individual (2 horas)</li>
+                            <li>Análisis profundo del caso</li>
+                            <li>Recomendaciones accionables</li>
+                            <li>Documento resumen ejecutivo</li>
+                            <li>Seguimiento vía email por 1 semana</li>
+                        </ul>
+                        <div class="ideal-para">
+                            <div class="ideal-para-label">Ideal para</div>
+                            <ul>
+                                <li>Decisiones clave</li>
+                                <li>Reestructuración urgente</li>
+                                <li>Validación estratégica</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="price-tag">
+                        <div class="price">$400</div>
+                        <div class="price-period">Por sesión</div>
+                        <div class="price-note">USD · 2 horas</div>
                     </div>
                 </div>
-                <div class="premium-feature">
-                    <div class="premium-feature-icon">👥</div>
-                    <div>
-                        <h3>Equipo Multidisciplinario</h3>
-                        <p>Acceso a especialistas en marketing, finanzas y operaciones</p>
+
+                <!-- Iguala Mensual Ejecutiva -->
+                <div class="pricing-item">
+                    <div class="pricing-info">
+                        <h3>Iguala Mensual Ejecutiva</h3>
+                        <div class="package-meta">
+                            <span class="meta-badge">Mínimo 3 meses</span>
+                            <span class="meta-badge">8 horas mensuales</span>
+                        </div>
+                        <div class="includes-label">Incluye</div>
+                        <ul class="includes">
+                            <li>4 sesiones estratégicas (1 hora cada una)</li>
+                            <li>4 horas flexibles para revisión y análisis</li>
+                            <li>Disponibilidad vía WhatsApp (horario laboral)</li>
+                            <li>Revisión de decisiones y planes</li>
+                            <li>Acceso prioritario a recursos estratégicos</li>
+                            <li>Reporte mensual de progreso</li>
+                        </ul>
+                        <div class="ideal-para">
+                            <div class="ideal-para-label">Enfoque</div>
+                            <ul>
+                                <li>Dirección estratégica continua para ejecutivas y fundadoras</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="price-tag">
+                        <div class="price">$2,300</div>
+                        <div class="price-period">Por mes</div>
+                        <div class="price-note">Mínimo 3 meses</div>
                     </div>
                 </div>
-                <div class="premium-feature">
-                    <div class="premium-feature-icon">🚀</div>
-                    <div>
-                        <h3>Implementación Completa</h3>
-                        <p>No solo planificamos, ejecutamos contigo cada estrategia</p>
+
+            </div>
+        </div>
+
+        <!-- SECTION III -->
+        <div class="service-category" style="margin-bottom: 3rem;">
+            <div class="section-label">
+                <span class="section-number">III</span>
+                <span class="section-title-main">Campañas</span>
+            </div>
+
+            <div class="pricing-options">
+
+                <!-- Campaña Digital Enfocada -->
+                <div class="pricing-item">
+                    <div class="pricing-info">
+                        <h3>Campaña Digital Enfocada</h3>
+                        <div class="package-meta">
+                            <span class="meta-badge">Duración: 30 días</span>
+                            <span class="meta-badge">3 sesiones estratégicas</span>
+                        </div>
+                        <div class="includes-label">Incluye</div>
+                        <ul class="includes">
+                            <li>Definición clara de objetivos</li>
+                            <li>Estrategia de campaña estructurada</li>
+                            <li>Plan de contenido 30 días</li>
+                            <li>Recomendaciones de inversión</li>
+                            <li>3 sesiones estratégicas (1 hora cada una)</li>
+                            <li>Análisis final de resultados</li>
+                        </ul>
+                        <p class="exclude-note">* No incluye ejecución de pauta.</p>
+                    </div>
+                    <div class="price-tag">
+                        <div class="price">$2,500</div>
+                        <div class="price-period">Por campaña</div>
+                        <div class="price-note">USD · 30 días</div>
                     </div>
                 </div>
-                <div class="premium-feature">
-                    <div class="premium-feature-icon">💎</div>
-                    <div>
-                        <h3>Acceso Prioritario</h3>
-                        <p>Línea directa, respuestas en 24h, reuniones de emergencia</p>
+
+                <!-- Campaña Integral 360° -->
+                <div class="pricing-item">
+                    <div class="pricing-info">
+                        <h3>Campaña Integral 360°</h3>
+                        <div class="package-meta">
+                            <span class="meta-badge">Duración: 60–90 días</span>
+                            <span class="meta-badge">8 sesiones estratégicas</span>
+                        </div>
+                        <div class="includes-label">Incluye</div>
+                        <ul class="includes">
+                            <li>Todo lo de Campaña Digital Enfocada</li>
+                            <li>Estrategia online y offline</li>
+                            <li>Coordinación con proveedores</li>
+                            <li>Gestión de relaciones públicas</li>
+                            <li>Plan de activaciones y eventos</li>
+                            <li>8 sesiones estratégicas</li>
+                            <li>Reportes semanales de progreso</li>
+                        </ul>
+                    </div>
+                    <div class="price-tag">
+                        <div class="price">$5,000</div>
+                        <div class="price-period">Por campaña</div>
+                        <div class="price-note">USD · 60–90 días</div>
                     </div>
                 </div>
-                <div class="premium-feature">
-                    <div class="premium-feature-icon">🤝</div>
-                    <div>
-                        <h3>Networking Elite</h3>
-                        <p>Presentaciones con inversionistas, socios estratégicos y medios</p>
+
+            </div>
+        </div>
+
+        <!-- SECTION IV: Programa Anual Intensivo -->
+        <div class="programa-anual">
+            <div class="programa-anual-header">
+                <div class="programa-anual-icon">🏆</div>
+                <div>
+                    <div style="display:flex;align-items:center;gap:1rem;">
+                        <span class="section-number" style="background:rgba(212,165,116,0.3);color:var(--primary);">IV</span>
+                        <h2>Programa Anual Intensivo</h2>
                     </div>
-                </div>
-                <div class="premium-feature">
-                    <div class="premium-feature-icon">📈</div>
-                    <div>
-                        <h3>Resultados Garantizados</h3>
-                        <p>KPIs claros y compromiso con resultados medibles</p>
-                    </div>
+                    <div class="programa-anual-subtitle">Pago bimensual · 48 sesiones · 96 horas</div>
                 </div>
             </div>
-            <div class="premium-price">
-                <div class="price">$28,500</div>
-                <div class="price-note">6 meses | Inversión completa | Hasta 6 pagos mensuales disponibles</div>
+
+            <p>
+                Mentoría estratégica anual completa para empresas en expansión o transformación profunda. Acompañamiento continuo durante todo el año con revisiones trimestrales, desarrollo de recursos estratégicos y soporte en decisiones clave.
+            </p>
+
+            <div class="programa-features">
+                <div class="programa-feature">Mentoría estratégica anual completa</div>
+                <div class="programa-feature">Revisión y construcción del plan estratégico anual</div>
+                <div class="programa-feature">Revisiones trimestrales profundas</div>
+                <div class="programa-feature">Desarrollo de recursos estratégicos necesarios</div>
+                <div class="programa-feature">Preparación y acompañamiento en presentaciones a inversionistas</div>
+                <div class="programa-feature">Soporte continuo en decisiones clave</div>
+            </div>
+
+            <div class="programa-bottom">
+                <div class="programa-ideal">
+                    <div class="programa-ideal-label">Ideal para</div>
+                    <p>Empresas en expansión o transformación profunda que requieren una presencia estratégica constante a lo largo del año.</p>
+                </div>
+                <div class="programa-price-box">
+                    <div class="price">$14,500</div>
+                    <div class="price-period">Anuales</div>
+                    <div class="price-note">Pago bimensual disponible</div>
+                </div>
             </div>
         </div>
 
@@ -1003,10 +1186,11 @@
             <p style="font-size: 0.9rem;">
                 © 2025 Grupo Aro, SRL · Studio Est. 2008 · Todos los derechos reservados<br>
                 <span style="font-size: 0.85rem; font-style: italic;">
-                    Precios válidos hasta Junio 2025 · Sujetos a cambio sin previo aviso · Precios en dólares estadounidenses (USD)
+                    Precios válidos hasta Diciembre 2025 · Sujetos a cambio sin previo aviso · Precios en dólares estadounidenses (USD)
                 </span>
             </p>
         </div>
+
     </div>
 </body>
 </html>
