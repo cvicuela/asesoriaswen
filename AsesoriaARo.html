@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Aro - Asesoría Empresarial Estratégica | Consultoría para Líderes</title>
+    <meta name="description" content="Asesoría empresarial estratégica para mujeres emprendedoras y ejecutivas. Especialistas en lanzamientos, relanzamientos y campañas de alto impacto.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Paleta Sofisticada */
+            --primary: #D4A574;
+            --primary-dark: #B8935F;
+            --accent-rose: #E8B4B8;
+            --accent-coral: #FF6347;
+            --secondary: #2A3F54;
+            --bg-cream: #FAF8F5;
+            --bg-white: #FFFFFF;
+            --bg-light-rose: #FFF5F7;
+            --text-dark: #1A1A1A;
+            --text-gray: #6B7280;
+            --text-light-gray: #9CA3AF;
+            
+            /* Gradientes Elegantes */
+            --gradient-gold: linear-gradient(135deg, #D4A574 0%, #F0D9B5 100%);
+            --gradient-rose: linear-gradient(135deg, #E8B4B8 0%, #FFF5F7 100%);
+            --gradient-overlay: linear-gradient(180deg, rgba(42, 63, 84, 0.9) 0%, rgba(42, 63, 84, 0.7) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 165, 116, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 6%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--secondary);
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 0.75rem 1.8rem;
+            background: var(--gradient-gold);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.3);
+        }
+
+        .nav-cta::after {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            padding: 8rem 6% 4rem;
+            background: var(--bg-cream);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: var(--gradient-rose);
+            opacity: 0.3;
+            z-index: 0;
+            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: var(--bg-light-rose);
+            color: var(--primary-dark);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 6vw, 5.5rem);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+        }
+
+        .hero-title .highlight {
+            color: var(--primary);
+            font-style: italic;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(42, 63, 84, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-dark);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-visual {
+            position: relative;
+            z-index: 1;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.95);
+        }
+
+        .hero-stats {
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            background: white;
+            padding: 2rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 6%;
+            background: white;
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin: 0 auto 5rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--bg-cream);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-rose);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 50px rgba(212, 165, 116, 0.2);
+        }
+
+        .service-card:hover::before {
+            opacity: 0.5;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-gold);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-title {
+            font-size: 1.6rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-description {
+            color: var(--text-gray);
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 8rem 6%;
+            background: var(--secondary);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(212,165,116,0.1)" stroke-width="0.5"/></svg>');
+            background-size: 100px 100px;
+            opacity: 0.3;
+        }
+
+        .expertise-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .expertise-text h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .expertise-text h2 .highlight {
+            color: var(--primary);
+        }
+
+        .expertise-text p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 3rem;
+        }
+
+        .expertise-list {
+            list-style: none;
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .expertise-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border-left: 3px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .expertise-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(10px);
+        }
+
+        .expertise-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .expertise-item-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .expertise-item-text p {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+
+        .expertise-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        .expertise-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 25px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Process Section */
+        .process {
+            padding: 8rem 6%;
+            background: var(--bg-cream);
+        }
+
+        .process-grid {
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            position: relative;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            padding: 2rem 1.5rem;
+        }
+
+        .process-number {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+        }
+
+        .process-title {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .process-description {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 8rem 6%;
+            background: white;
+        }
+
+        .testimonials-grid {
+            max-width: 1400px;
+            margin: 4rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-cream);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+
+        .quote-icon {
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.2;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 6%;
+            background: var(--gradient-overlay), url('https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1920&h=800&fit=crop&q=80') center/cover;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--secondary);
+        }
+
+        .btn-white:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 6%;
+            background: var(--bg-cream);
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 5rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-gold);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            color: white;
+        }
+
+        .contact-item-text h4 {
+            font-size: 1rem;
+            color: var(--text-gray);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+
+        .contact-item-text p {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .contact-item-text a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item-text a:hover {
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.7rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            background: var(--bg-cream);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            color: var(--text-dark);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 6% 2rem;
+            background: var(--secondary);
+            color: white;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand h3 span {
+            color: var(--primary);
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 6rem;
+            }
+
+            .hero-visual {
+                height: 400px;
+            }
+
+            .hero-stats {
+                position: static;
+                margin-top: 2rem;
+            }
+
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .expertise-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .expertise-visual {
+                height: 400px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="logo-text">
+            GRUPO <span>ARO</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#proceso">Proceso</a></li>
+            <li><a href="#testimonios">Testimonios</a></li>
+            <li><a href="#contacto" class="nav-cta">Agenda una Consulta</a></li>
+        </ul>
+        <button class="mobile-menu-btn">☰</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <span class="hero-label">Asesoría Empresarial Estratégica</span>
+            <h1 class="hero-title">
+                Transformamos tu <span class="highlight">Visión</span> en Realidad Empresarial
+            </h1>
+            <p class="hero-description">
+                Consultoría especializada para mujeres emprendedoras y ejecutivas que buscan lanzar, relanzar o escalar sus proyectos con estrategias de alto impacto.
+            </p>
+            <div class="hero-buttons">
+                <a href="#contacto" class="btn btn-primary">
+                    Agenda tu Consulta Estratégica
+                    <span>→</span>
+                </a>
+                <a href="#servicios" class="btn btn-secondary">
+                    Conoce Nuestros Servicios
+                </a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1000&fit=crop&q=80" alt="Mujer Ejecutiva" class="hero-image">
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">150+</span>
+                    <span class="stat-label">Proyectos Exitosos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">95%</span>
+                    <span class="stat-label">Satisfacción</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">16+</span>
+                    <span class="stat-label">Años de Experiencia</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="services">
+        <div class="section-header">
+            <p class="section-subtitle">Nuestros Servicios</p>
+            <h2 class="section-title">Soluciones Estratégicas a tu Medida</h2>
+            <p class="section-description">
+                Acompañamiento integral desde la concepción hasta la ejecución de tu proyecto empresarial
+            </p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">🚀</div>
+                <h3 class="service-title">Lanzamiento de Proyectos</h3>
+                <p class="service-description">
+                    Estrategia completa para lanzar tu negocio al mercado con impacto. Desde el plan de negocios hasta la estrategia de go-to-market.
+                </p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">📈</div>
+                <h3 class="service-title">Relanzamiento & Rebranding</h3>
+                <p class="service-description">
+                    Revitaliza tu marca y negocio con estrategias de reposicionamiento que conecten con tu nueva audiencia objetivo.
+                </p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">💼</div>
+                <h3 class="service-title">Consultoría Ejecutiva</h3>
+                <p class="service-description">
+                    Asesoría personalizada para ejecutivas y líderes empresariales que buscan optimizar su gestión y resultados.
+                </p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">🎯</div>
+                <h3 class="service-title">Campañas Estratégicas</h3>
+                <p class="service-description">
+                    Diseño y ejecución de campañas de marketing con objetivos medibles y resultados de alto impacto.
+                </p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">💡</div>
+                <h3 class="service-title">Mentoría Empresarial</h3>
+                <p class="service-description">
+                    Acompañamiento continuo para emprendedoras que buscan escalar su negocio con estrategias probadas.
+                </p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">📊</div>
+                <h3 class="service-title">Análisis & Growth</h3>
+                <p class="service-description">
+                    Diagnóstico profundo de tu negocio y plan de crecimiento basado en datos y mejores prácticas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="expertise">
+        <div class="expertise-content">
+            <div class="expertise-text">
+                <h2>
+                    Experiencia que <span class="highlight">Marca la Diferencia</span>
+                </h2>
+                <p>
+                    Con más de 16 años liderando proyectos empresariales, entendemos los desafíos únicos que enfrentan las mujeres emprendedoras y ejecutivas en el mercado actual.
+                </p>
+                <ul class="expertise-list">
+                    <li class="expertise-item">
+                        <div class="expertise-icon">✨</div>
+                        <div class="expertise-item-text">
+                            <h4>Estrategia Personalizada</h4>
+                            <p>Soluciones únicas diseñadas específicamente para tus objetivos</p>
+                        </div>
+                    </li>
+                    <li class="expertise-item">
+                        <div class="expertise-icon">🎓</div>
+                        <div class="expertise-item-text">
+                            <h4>Metodología Probada</h4>
+                            <p>Frameworks empresariales validados con resultados medibles</p>
+                        </div>
+                    </li>
+                    <li class="expertise-item">
+                        <div class="expertise-icon">🤝</div>
+                        <div class="expertise-item-text">
+                            <h4>Acompañamiento Integral</h4>
+                            <p>Soporte continuo en cada fase de tu proyecto</p>
+                        </div>
+                    </li>
+                    <li class="expertise-item">
+                        <div class="expertise-icon">🌟</div>
+                        <div class="expertise-item-text">
+                            <h4>Red de Networking</h4>
+                            <p>Acceso a una comunidad de líderes y emprendedoras exitosas</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="expertise-visual">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&h=1000&fit=crop&q=80" alt="Expertise" class="expertise-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="proceso" class="process">
+        <div class="section-header">
+            <p class="section-subtitle">Nuestro Proceso</p>
+            <h2 class="section-title">Cómo Trabajamos Contigo</h2>
+            <p class="section-description">
+                Un proceso estructurado y flexible que se adapta a las necesidades de tu proyecto
+            </p>
+        </div>
+        <div class="process-grid">
+            <div class="process-step fade-in">
+                <div class="process-number">1</div>
+                <h3 class="process-title">Diagnóstico</h3>
+                <p class="process-description">
+                    Análisis profundo de tu situación actual, objetivos y oportunidades de mercado.
+                </p>
+            </div>
+            <div class="process-step fade-in">
+                <div class="process-number">2</div>
+                <h3 class="process-title">Estrategia</h3>
+                <p class="process-description">
+                    Desarrollo de un plan estratégico personalizado con objetivos claros y medibles.
+                </p>
+            </div>
+            <div class="process-step fade-in">
+                <div class="process-number">3</div>
+                <h3 class="process-title">Ejecución</h3>
+                <p class="process-description">
+                    Implementación de las estrategias con acompañamiento continuo y ajustes en tiempo real.
+                </p>
+            </div>
+            <div class="process-step fade-in">
+                <div class="process-number">4</div>
+                <h3 class="process-title">Optimización</h3>
+                <p class="process-description">
+                    Monitoreo de resultados y optimización continua para maximizar el impacto.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="testimonials">
+        <div class="section-header">
+            <p class="section-subtitle">Testimonios</p>
+            <h2 class="section-title">Lo Que Dicen Nuestras Clientas</h2>
+            <p class="section-description">
+                Historias reales de mujeres que han transformado sus negocios con nuestra asesoría
+            </p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card fade-in">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-text">
+                    Grupo Aro fue clave en el relanzamiento de mi empresa. Su enfoque estratégico y comprensión del mercado femenino nos ayudó a triplicar nuestras ventas en 6 meses.
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MC</div>
+                    <div class="author-info">
+                        <h4>María Castillo</h4>
+                        <p>CEO, Fashion Boutique</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-text">
+                    La mentoría que recibí me dio la claridad y confianza que necesitaba para expandir mi negocio a nivel internacional. Resultados excepcionales.
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">LG</div>
+                    <div class="author-info">
+                        <h4>Laura Gómez</h4>
+                        <p>Fundadora, Tech Startup</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="quote-icon">"</div>
+                <p class="testimonial-text">
+                    Su expertise en campañas estratégicas transformó completamente nuestra presencia en el mercado. Profesionalismo y resultados en cada etapa.
+                </p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SV</div>
+                    <div class="author-info">
+                        <h4>Sofía Vargas</h4>
+                        <p>Directora de Marketing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>¿Lista para Transformar tu Proyecto?</h2>
+            <p>
+                Agenda una consulta estratégica gratuita y descubre cómo podemos impulsar tu negocio al siguiente nivel.
+            </p>
+            <div class="cta-buttons">
+                <a href="#contacto" class="btn btn-white">
+                    Agenda tu Consulta Gratuita
+                    <span>→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="section-header">
+            <p class="section-subtitle">Contacto</p>
+            <h2 class="section-title">Comencemos a Trabajar Juntas</h2>
+            <p class="section-description">
+                Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas
+            </p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Información de Contacto</h3>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📧</div>
+                        <div class="contact-item-text">
+                            <h4>Email</h4>
+                            <p><a href="mailto:wendolyn@mynameisaro.com">wendolyn@mynameisaro.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📱</div>
+                        <div class="contact-item-text">
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/18299420405" target="_blank">+1 (829) 942-0405</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">📍</div>
+                        <div class="contact-item-text">
+                            <h4>Ubicación</h4>
+                            <p>República Dominicana</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-item-icon">⏰</div>
+                        <div class="contact-item-text">
+                            <h4>Horario</h4>
+                            <p>Lun - Vie: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="empresa">Empresa / Proyecto</label>
+                            <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono *</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="+1 (809) 000-0000">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="servicio">Servicio de Interés *</label>
+                        <select id="servicio" name="servicio" required>
+                            <option value="">Selecciona un servicio</option>
+                            <option value="lanzamiento">Lanzamiento de Proyecto</option>
+                            <option value="relanzamiento">Relanzamiento & Rebranding</option>
+                            <option value="consultoria">Consultoría Ejecutiva</option>
+                            <option value="campanas">Campañas Estratégicas</option>
+                            <option value="mentoria">Mentoría Empresarial</option>
+                            <option value="growth">Análisis & Growth</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Cuéntanos sobre tu proyecto *</label>
+                        <textarea id="mensaje" name="mensaje" required placeholder="Describe brevemente tu proyecto, objetivos y cómo podemos ayudarte..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        Enviar Solicitud de Consulta
+                        <span>→</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>GRUPO <span>ARO</span></h3>
+                <p>
+                    Asesoría empresarial estratégica para mujeres emprendedoras y ejecutivas que buscan transformar sus proyectos.
+                </p>
+                <div class="footer-social">
+                    <a href="https://www.instagram.com/mynameisaro/" target="_blank" class="social-link">📷</a>
+                    <a href="https://www.linkedin.com/in/wendolynrodriguez/" target="_blank" class="social-link">💼</a>
+                    <a href="https://wa.me/18299420405" target="_blank" class="social-link">💬</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Servicios</h4>
+                <ul class="footer-links">
+                    <li><a href="#servicios">Lanzamiento de Proyectos</a></li>
+                    <li><a href="#servicios">Relanzamiento</a></li>
+                    <li><a href="#servicios">Consultoría Ejecutiva</a></li>
+                    <li><a href="#servicios">Campañas Estratégicas</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Empresa</h4>
+                <ul class="footer-links">
+                    <li><a href="#expertise">Sobre Nosotros</a></li>
+                    <li><a href="#proceso">Nuestro Proceso</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Aviso Legal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Grupo Aro, SRL · Studio Est. 2008 · Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Mobile menu
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            const isOpen = navLinks.style.display === 'flex';
+            
+            if (isOpen) {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.background = 'rgba(255, 255, 255, 0.98)';
+                navLinks.style.padding = '2rem';
+                navLinks.style.gap = '1.5rem';
+                navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 1024) {
+                    navLinks.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
