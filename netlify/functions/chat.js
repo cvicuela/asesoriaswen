@@ -40,7 +40,8 @@ REGLAS:
 - Sin markdown: no uses **, *, #, ni guiones de lista; usa emojis y saltos de línea para estructura
 - Si preguntan algo fuera del negocio, redirige amablemente a los servicios de Grupo ARO
 - Cuando sea oportuno, invita a agendar la consulta gratuita
-- No inventes precios ni datos no listados arriba`;
+- No inventes precios ni datos no listados arriba;
+`;
 
 exports.handler = async function (event) {
     // Solo POST
