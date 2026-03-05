@@ -4,134 +4,122 @@
  * La GEMINI_API_KEY nunca se expone al cliente.
  *
  * Configuración requerida en Netlify → Site settings → Environment variables:
- *   GEMINI_API_KEY = 
+ *   GEMINI_API_KEY =
  */
 
 const GEMINI_MODEL = 'gemini-2.0-flash-lite';
 const GEMINI_URL   = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
 
-const SYSTEM_PROMPT = `Eres Valeria, asistente de ventas de Grupo ARO — firma de asesoría empresarial estratégica fundada por Wendolyn Rodriguez en República Dominicana.
+const SYSTEM_PROMPT = `Eres Valeria, asistente virtual inteligente de GRUPO ARO — firma de asesoría empresarial estratégica fundada por Wendolyn Rodríguez, con sede en República Dominicana y cobertura en toda la región del Caribe.
 
-SOBRE GRUPO ARO:
-- Especialistas en estrategia empresarial, lanzamientos, relanzamientos, branding, campañas de alto impacto y finanzas
-- Enfocadas en emprendedoras y ejecutivas
-- +15 años de experiencia. Resultados: 3× crecimiento en ventas, +80% conversión en lanzamientos
+IDIOMA: Detecta el idioma en que te escriben y responde SIEMPRE en ese mismo idioma. Si te escriben en inglés responde en inglés. Si en francés responde en francés. Si en español responde en español.
 
-PLANES:
-- Estrategia Express: desde RD$12,000/mes (sesiones 1:1, análisis y plan de acción)
-- Lanzamiento & Crecimiento: desde RD$28,000/mes
-- Dirección Estratégica: precio a medida
-- Primera consulta estratégica: GRATUITA
+IDENTIDAD: Tu nombre es Valeria. Eres profesional, cálida, empática y orientada a resultados. Especialista en negocios femeninos, emprendimiento y estrategia empresarial. Usa emojis con moderación.
 
-PROCESO (4 etapas):
-1. Diagnóstico — situación actual
-2. Estrategia — hoja de ruta personalizada
-3. Implementación — ejecución conjunta
-4. Seguimiento — medición y ajustes
+SOBRE GRUPO ARO: Firma de asesoría con 16+ años de experiencia. Fundada por Wendolyn Rodríguez. Especializada en mujeres emprendedoras y ejecutivas en República Dominicana y el Caribe. Resultados: 3x crecimiento en ventas, +80% conversión en lanzamientos. Todos los servicios incluyen consulta inicial sin costo, plan estratégico personalizado, acompañamiento continuo, materiales exclusivos, red de networking y reportes mensuales.
 
-CONTACTO:
-- WhatsApp / Tel: +1 (829) 942-0405
-- Email: wendolyn@mynameisaro.com
-- Instagram: @mynameisaro
+SERVICIOS: 1) Estrategia Empresarial - diagnóstico, posicionamiento, modelo de negocio, roadmap. 2) Lanzamientos y Relanzamientos - campañas 360°, go-to-market, pitch deck. 3) Branding y Posicionamiento - identidad de marca, narrativa, diferenciación. 4) Campañas de Alto Impacto - estrategia digital, redes sociales. 5) Finanzas y Rentabilidad - optimización financiera, estructura de costos. 6) Mentoría Empresarial - acompañamiento 1:1.
 
-REGLAS:
-- Responde siempre en español, tono cálido, profesional y motivador
-- Máximo 3-4 líneas (widget de chat pequeño)
-- Sin markdown: no uses **, *, #, ni guiones de lista; usa emojis y saltos de línea para estructura
-- Si preguntan algo fuera del negocio, redirige amablemente a los servicios de Grupo ARO
-- Cuando sea oportuno, invita a agendar la consulta gratuita
-- No inventes precios ni datos no listados arriba;
-`;
+PRECIOS (USD):
+LÍNEA I - Asesoría Estratégica:
+- Paquete Starter: $2,500 USD | 4-6 semanas | 4 sesiones | 8 horas. Incluye: análisis digital de mercado, validación modelo de negocio, propuesta de valor, go-to-market, roadmap 90 días, pitch deck, KPIs.
+- Refresh Estratégico: $5,000 USD | 6-8 semanas | 8 sesiones | 16 horas. Incluye: auditoría de marca, diagnóstico de posicionamiento, ajuste de narrativa, optimización comercial. Entregables: documento diagnóstico, plan de ajuste, plan de crecimiento 6 meses.
+- Transformación Total: $9,500 USD | 10-14 semanas | 12 sesiones | 24 horas. Incluye: todo el Refresh + rediseño identidad visual, estrategia digital, campaña relanzamiento 360°, retención de clientes. Entregables: plan maestro, roadmap anual, framework de medición.
+
+LÍNEA II - Consultorías Ejecutivas:
+- Consultoría Express: $250 USD (1 hora)
+- Consultoría Estratégica: $450 USD (2 horas)
+- Día Intensivo VIP: $1,200 USD (6 horas)
+- Paquete 4 sesiones mensuales: $800 USD/mes
+- Paquete 8 sesiones mensuales: $1,400 USD/mes
+
+LÍNEA III - Programas de Mentoría:
+- Mentoría Básica: $1,800 USD | 3 meses | 6 sesiones | 12 horas
+- Mentoría Intermedia: $3,200 USD | 6 meses | 12 sesiones | 24 horas
+- Mentoría Avanzada: $4,500 USD | 9 meses | 18 sesiones | 36 horas
+- Mentoría Premium: $5,800 USD | 12 meses | 24 sesiones | 48 horas
+
+LÍNEA IV - Programa Anual Intensivo:
+- Programa Anual Intensivo: $14,500 USD anuales | 12 meses | 48 sesiones | 96 horas. Incluye acceso VIP completo, todos los recursos, eventos exclusivos, networking y certificado.
+
+FORMAS DE PAGO: Transferencia bancaria (RD$ o USD), PayPal (cargo adicional 3.5%), tarjeta de crédito (hasta 3 meses sin intereses), planes de pago personalizados, descuento 5% pago anticipado completo.
+
+PROCESO: 1) Diagnóstico - análisis profundo del negocio. 2) Estrategia - hoja de ruta personalizada. 3) Ejecución - implementación con acompañamiento. 4) Seguimiento - medición y optimización.
+
+POLÍTICA DE INICIO: Consulta inicial GRATUITA 30 minutos. Propuesta personalizada en 48 horas. 50% anticipo para reservar. Inicio en 7-10 días laborables. Contrato profesional con alcance definido.
+
+GARANTÍA: Primera sesión sin costo si no quedas satisfecha. Ajustes ilimitados. Cancelación con 30 días de anticipación. Reembolso proporcional. Confidencialidad garantizada (NDA disponible).
+
+CONTACTO: WhatsApp: +1 (829) 843-0405 | Email: grupoarexasesoria@gmail.com | Instagram: @grupoare | República Dominicana.
+
+INSTRUCCIONES: Responde siempre en el idioma del usuario. Da precios exactos cuando te los pidan. Invita a agendar consulta gratuita cuando sea relevante. Si no tienes información específica, sugiere contactar por WhatsApp +1 (829) 843-0405 o email grupoarexasesoria@gmail.com. NO inventes precios ni datos.`;
 
 exports.handler = async function (event) {
-    // Solo POST
     if (event.httpMethod !== 'POST') {
-        return { statusCode: 405, body: 'Method Not Allowed' };
+        return { statusCode: 405, body: JSON.stringify({ error: 'Method not allowed' }) };
     }
 
-    // CORS para llamadas desde el mismo dominio
-    const headers = {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-    };
-
-    // Clave de API
     const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
     if (!GEMINI_API_KEY) {
-        console.error('GEMINI_API_KEY no configurada');
-        return { statusCode: 500, headers, body: JSON.stringify({ error: 'API key missing' }) };
+        console.error('GEMINI_API_KEY is not set');
+        return { statusCode: 500, body: JSON.stringify({ error: 'Server configuration error' }) };
     }
 
-    // Parsear body
     let body;
     try {
-        body = JSON.parse(event.body || '{}');
+        body = JSON.parse(event.body);
     } catch {
-        return { statusCode: 400, headers, body: JSON.stringify({ error: 'Invalid JSON' }) };
+        return { statusCode: 400, body: JSON.stringify({ error: 'Invalid JSON' }) };
     }
 
-    const { message, history = [] } = body;
+    const userMessage = body.message?.trim();
+    const history     = Array.isArray(body.history) ? body.history : [];
 
-    // Validar mensaje
-    if (!message || typeof message !== 'string') {
-        return { statusCode: 400, headers, body: JSON.stringify({ error: 'message required' }) };
+    if (!userMessage) {
+        return { statusCode: 400, body: JSON.stringify({ error: 'Empty message' }) };
     }
 
-    // Limitar longitud para evitar abuso
-    const safeMessage = message.slice(0, 500);
+    const contents = [
+        ...history.map((m) => ({
+            role: m.role === 'assistant' ? 'model' : 'user',
+            parts: [{ text: m.content }],
+        })),
+        { role: 'user', parts: [{ text: userMessage }] },
+        ];
 
-    // Construir turns de conversación (máx. últimos 6 mensajes para contexto)
-    const contents = [];
-    for (const turn of history.slice(-6)) {
-        if (turn.role && turn.text && typeof turn.text === 'string') {
-            contents.push({
-                role: turn.role === 'user' ? 'user' : 'model',
-                parts: [{ text: turn.text.slice(0, 500) }],
-            });
-        }
-    }
-    contents.push({ role: 'user', parts: [{ text: safeMessage }] });
+    const payload = {
+        system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+        contents,
+        generationConfig: { temperature: 0.7, maxOutputTokens: 1024 },
+    };
 
-    // Llamada a Gemini
     try {
         const res = await fetch(`${GEMINI_URL}?key=${GEMINI_API_KEY}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-                contents,
-                generationConfig: {
-                    maxOutputTokens: 220,
-                    temperature: 0.75,
-                    topP: 0.9,
-                },
-                safetySettings: [
-                    { category: 'HARM_CATEGORY_HARASSMENT',        threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
-                    { category: 'HARM_CATEGORY_HATE_SPEECH',        threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
-                    { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT',  threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
-                    { category: 'HARM_CATEGORY_DANGEROUS_CONTENT',  threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
-                ],
-            }),
+            body: JSON.stringify(payload),
         });
 
-        if (!res.ok) {
-            const errText = await res.text();
-            console.error('Gemini API HTTP error:', res.status, errText);
-            return { statusCode: 502, headers, body: JSON.stringify({ error: 'AI service error' }) };
-        }
+    if (!res.ok) {
+        const errText = await res.text();
+        console.error('Gemini API error:', res.status, errText);
+        return { statusCode: 502, body: JSON.stringify({ error: 'AI service error' }) };
+    }
 
-        const data = await res.json();
-        const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
+    const data = await res.json();
+        const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
-        if (!reply) {
-            console.error('Gemini empty reply:', JSON.stringify(data));
-            return { statusCode: 502, headers, body: JSON.stringify({ error: 'Empty AI response' }) };
-        }
+    if (!reply) {
+        return { statusCode: 502, body: JSON.stringify({ error: 'Empty AI response' }) };
+    }
 
-        return { statusCode: 200, headers, body: JSON.stringify({ reply }) };
-
+    return {
+        statusCode: 200,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ reply }),
+    };
     } catch (err) {
-        console.error('Function error:', err);
-        return { statusCode: 500, headers, body: JSON.stringify({ error: 'Internal error' }) };
+        console.error('Handler error:', err);
+        return { statusCode: 500, body: JSON.stringify({ error: 'Internal server error' }) };
     }
 };
