@@ -4,7 +4,7 @@
  * La GEMINI_API_KEY nunca se expone al cliente.
  *
  * Configuración requerida en Netlify → Site settings → Environment variables:
- *   GEMINI_API_KEY = AIzaSyA1wh6R768gWd_YT68fIvDjFCJ08LyiYFg
+ *   GEMINI_API_KEY = 
  */
 
 const GEMINI_MODEL = 'gemini-2.0-flash-lite';
