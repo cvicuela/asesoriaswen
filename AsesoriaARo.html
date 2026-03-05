@@ -1484,5 +1484,536 @@
             });
         });
     </script>
+
+    <!-- ===== WhatsApp AI Chat Widget ===== -->
+    <style>
+        /* Floating button */
+        #wa-widget {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 9999;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+
+        #wa-bubble {
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+        }
+
+        #wa-bubble:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 32px rgba(37,211,102,0.55);
+        }
+
+        #wa-bubble svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        /* Pulse ring */
+        #wa-bubble::before {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2.5px solid rgba(37,211,102,0.5);
+            animation: wa-pulse 2s ease-out infinite;
+        }
+
+        @keyframes wa-pulse {
+            0%   { transform: scale(0.9); opacity: 0.8; }
+            70%  { transform: scale(1.35); opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        /* Notification dot */
+        #wa-notif {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 18px;
+            height: 18px;
+            background: #D4A574;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            font-size: 10px;
+            color: #fff;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: wa-bounce 0.6s ease 2s both;
+        }
+
+        @keyframes wa-bounce {
+            0%   { transform: scale(0); }
+            60%  { transform: scale(1.25); }
+            100% { transform: scale(1); }
+        }
+
+        /* Chat panel */
+        #wa-panel {
+            position: absolute;
+            bottom: 75px;
+            right: 0;
+            width: 340px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 16px 60px rgba(0,0,0,0.18);
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            transform-origin: bottom right;
+            animation: wa-open 0.25s ease;
+        }
+
+        @keyframes wa-open {
+            from { opacity: 0; transform: scale(0.85); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+        #wa-panel.open {
+            display: flex;
+        }
+
+        /* Header */
+        #wa-header {
+            background: linear-gradient(135deg, #1a472a 0%, #25D366 100%);
+            padding: 1.1rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            position: relative;
+        }
+
+        #wa-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        #wa-agent-info h3 {
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin: 0 0 2px;
+        }
+
+        #wa-agent-info p {
+            color: rgba(255,255,255,0.82);
+            font-size: 0.78rem;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        #wa-agent-info p::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            background: #a8ffca;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        #wa-close {
+            position: absolute;
+            top: 10px;
+            right: 12px;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 1.2rem;
+            cursor: pointer;
+            line-height: 1;
+            padding: 2px 6px;
+            border-radius: 50%;
+            transition: background 0.15s;
+        }
+
+        #wa-close:hover { background: rgba(0,0,0,0.15); }
+
+        /* Promo banner */
+        #wa-promo {
+            background: #f0fdf4;
+            border-bottom: 1px solid #d1fae5;
+            padding: 0.55rem 1rem;
+            font-size: 0.78rem;
+            color: #166534;
+            text-align: center;
+        }
+
+        /* Messages area */
+        #wa-messages {
+            flex: 1;
+            max-height: 260px;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            background: #f5f0eb;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a574' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .wa-msg {
+            max-width: 80%;
+            padding: 0.55rem 0.85rem;
+            border-radius: 14px;
+            font-size: 0.875rem;
+            line-height: 1.45;
+            word-break: break-word;
+        }
+
+        .wa-msg.bot {
+            background: #fff;
+            color: #2d2d2d;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        }
+
+        .wa-msg.user {
+            background: #d9fdd3;
+            color: #111;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .wa-msg.typing span {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            background: #aaa;
+            border-radius: 50%;
+            margin: 0 1.5px;
+            animation: wa-dot 1.2s infinite;
+        }
+        .wa-msg.typing span:nth-child(2) { animation-delay: 0.2s; }
+        .wa-msg.typing span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes wa-dot {
+            0%, 60%, 100% { transform: translateY(0); }
+            30%            { transform: translateY(-6px); }
+        }
+
+        /* CTA button inside messages */
+        .wa-cta-btn {
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.55rem 1.1rem;
+            background: #25D366;
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .wa-cta-btn:hover { background: #1ebe5d; }
+
+        /* Quick-reply chips */
+        #wa-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            padding: 0.6rem 0.8rem;
+            background: #fff;
+            border-top: 1px solid #f0e8df;
+        }
+
+        .wa-chip {
+            padding: 0.35rem 0.8rem;
+            border: 1.5px solid #D4A574;
+            border-radius: 50px;
+            background: #fff;
+            color: #8B5E3C;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+            white-space: nowrap;
+        }
+        .wa-chip:hover { background: #D4A574; color: #fff; }
+
+        /* Input row */
+        #wa-input-row {
+            display: flex;
+            align-items: center;
+            padding: 0.6rem 0.75rem;
+            gap: 0.5rem;
+            background: #fff;
+            border-top: 1px solid #f0e8df;
+        }
+
+        #wa-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 0.875rem;
+            font-family: inherit;
+            color: #333;
+            background: #f5f0eb;
+            border-radius: 50px;
+            padding: 0.55rem 1rem;
+        }
+
+        #wa-send {
+            width: 36px;
+            height: 36px;
+            background: #25D366;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+        #wa-send:hover { background: #1ebe5d; }
+        #wa-send svg { width: 16px; height: 16px; }
+
+        /* Mobile adjustments */
+        @media (max-width: 480px) {
+            #wa-widget { bottom: 16px; right: 16px; }
+            #wa-panel  { width: calc(100vw - 32px); right: 0; }
+        }
+    </style>
+
+    <div id="wa-widget">
+        <!-- Chat panel -->
+        <div id="wa-panel" role="dialog" aria-label="Chat de asistencia">
+            <div id="wa-header">
+                <div id="wa-avatar">👩‍💼</div>
+                <div id="wa-agent-info">
+                    <h3>Valeria · Grupo ARO</h3>
+                    <p>Asistente de ventas · En línea</p>
+                </div>
+                <button id="wa-close" aria-label="Cerrar chat">✕</button>
+            </div>
+            <div id="wa-promo">🎁 Primera consulta estratégica <strong>sin costo</strong></div>
+            <div id="wa-messages"></div>
+            <div id="wa-chips">
+                <button class="wa-chip" data-msg="¿Cuáles son sus servicios?">Servicios</button>
+                <button class="wa-chip" data-msg="¿Cuánto cuesta?">Precios</button>
+                <button class="wa-chip" data-msg="¿Cómo es el proceso?">Proceso</button>
+                <button class="wa-chip" data-msg="Quiero agendar una consulta">Agendar</button>
+            </div>
+            <div id="wa-input-row">
+                <input id="wa-input" type="text" placeholder="Escribe tu consulta…" autocomplete="off" />
+                <button id="wa-send" aria-label="Enviar">
+                    <svg viewBox="0 0 24 24" fill="white"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Floating button -->
+        <div id="wa-bubble" role="button" aria-label="Abrir chat de WhatsApp" tabindex="0">
+            <span id="wa-notif">1</span>
+            <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        // ── Config ──────────────────────────────────────────────
+        const WA_NUMBER = '18299420405';
+        const WA_NAME   = 'Valeria';
+
+        // ── Knowledge base (keyword → response) ─────────────────
+        const KB = [
+            {
+                keys: ['precio','costo','cuánto','cuanto','tarifa','pago','inversión','inversion','plan'],
+                reply: `Nuestros planes están diseñados para distintos momentos de tu empresa:\n\n💼 <b>Estrategia Express</b> – desde RD$ 12,000/mes\n🚀 <b>Lanzamiento & Crecimiento</b> – desde RD$ 28,000/mes\n👑 <b>Dirección Estratégica</b> – a medida\n\nTodo incluye sesiones 1:1, análisis y plan de acción.`,
+                cta: true
+            },
+            {
+                keys: ['servicio','ofrecen','hacen','ayudan','qué hacen'],
+                reply: `En Grupo ARO te ayudamos a estructurar y escalar tu empresa:\n\n✅ Estrategia empresarial\n✅ Lanzamientos y relanzamientos\n✅ Branding y posicionamiento\n✅ Campañas de alto impacto\n✅ Finanzas y rentabilidad\n\n¿Alguno en especial te llama la atención?`,
+                cta: false
+            },
+            {
+                keys: ['proceso','como funciona','cómo funciona','pasos','etapas'],
+                reply: `Nuestro proceso tiene 4 etapas:\n\n1️⃣ <b>Diagnóstico</b> – analizamos tu situación actual\n2️⃣ <b>Estrategia</b> – diseñamos tu hoja de ruta\n3️⃣ <b>Implementación</b> – ejecutamos juntas\n4️⃣ <b>Seguimiento</b> – medimos y ajustamos\n\nTodo empieza con una consulta inicial gratuita 🎁`,
+                cta: true
+            },
+            {
+                keys: ['agendar','consulta','cita','reunión','reunion','quiero empezar','empezar','contratar','hablar'],
+                reply: `¡Perfecto! Me alegra que quieras dar el primer paso 🌟\n\nPuedo conectarte ahora mismo con nuestro equipo para agendar tu consulta estratégica gratuita.`,
+                cta: true
+            },
+            {
+                keys: ['experiencia','clientes','resultados','casos','testimonios'],
+                reply: `Llevamos más de 15 años transformando empresas lideradas por mujeres. Nuestras clientas han logrado:\n\n📈 3x crecimiento en ventas\n💡 Lanzamientos con +80% de conversión\n🏆 Posicionamiento como referentes en su industria\n\n¿Quieres conocer casos específicos de tu sector?`,
+                cta: true
+            },
+            {
+                keys: ['hola','hello','buenas','buen dia','buenos dias','buenas tardes','buenas noches','hi'],
+                reply: `¡Hola! Soy ${WA_NAME}, asistente de Grupo ARO 👋\n\n¿En qué puedo ayudarte hoy? Puedo contarte sobre nuestros servicios, precios o ayudarte a agendar tu consulta gratuita.`,
+                cta: false
+            },
+            {
+                keys: ['gracias','perfecto','ok','listo','entendido'],
+                reply: `¡Con gusto! Recuerda que tu primera consulta es completamente gratuita. Estamos aquí para ayudarte a llevar tu empresa al siguiente nivel 🚀`,
+                cta: true
+            }
+        ];
+
+        const DEFAULT_REPLY = `Entendido, con gusto te ayudo con eso. Para darte la información más precisa, ¿podrías contarme un poco más sobre tu empresa o el reto que enfrentas? También puedes conectarte directamente con nuestro equipo.`;
+
+        function getBotReply(text) {
+            const t = text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            for (const entry of KB) {
+                if (entry.keys.some(k => t.includes(k.normalize('NFD').replace(/[\u0300-\u036f]/g, '')))) {
+                    return entry;
+                }
+            }
+            return { reply: DEFAULT_REPLY, cta: true };
+        }
+
+        function waLink(preMsg) {
+            const msg = encodeURIComponent(preMsg || 'Hola, me interesa conocer más sobre los servicios de Grupo ARO');
+            return `https://wa.me/${WA_NUMBER}?text=${msg}`;
+        }
+
+        // ── DOM refs ──────────────────────────────────────────────
+        const widget   = document.getElementById('wa-widget');
+        const panel    = document.getElementById('wa-panel');
+        const bubble   = document.getElementById('wa-bubble');
+        const closeBtn = document.getElementById('wa-close');
+        const messages = document.getElementById('wa-messages');
+        const input    = document.getElementById('wa-input');
+        const sendBtn  = document.getElementById('wa-send');
+        const notif    = document.getElementById('wa-notif');
+        const chips    = document.querySelectorAll('.wa-chip');
+
+        let isOpen = false;
+        let msgCount = 0;
+
+        // ── Helpers ───────────────────────────────────────────────
+        function scrollBottom() {
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function addMsg(text, role, withCta) {
+            // Remove typing indicator if present
+            const typing = messages.querySelector('.typing');
+            if (typing) typing.remove();
+
+            const div = document.createElement('div');
+            div.className = `wa-msg ${role}`;
+
+            if (role === 'bot') {
+                div.innerHTML = text.replace(/\n/g, '<br>');
+                if (withCta) {
+                    const link = document.createElement('a');
+                    link.className = 'wa-cta-btn';
+                    link.href = waLink(text.substring(0, 80));
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                    link.innerHTML = '💬 Continuar por WhatsApp';
+                    const wrap = document.createElement('div');
+                    wrap.appendChild(link);
+                    div.appendChild(document.createElement('br'));
+                    div.appendChild(wrap);
+                }
+            } else {
+                div.textContent = text;
+            }
+
+            messages.appendChild(div);
+            scrollBottom();
+            msgCount++;
+        }
+
+        function showTyping() {
+            const div = document.createElement('div');
+            div.className = 'wa-msg bot typing';
+            div.innerHTML = '<span></span><span></span><span></span>';
+            messages.appendChild(div);
+            scrollBottom();
+        }
+
+        function botReply(userText) {
+            showTyping();
+            setTimeout(() => {
+                const entry = getBotReply(userText);
+                addMsg(entry.reply, 'bot', entry.cta);
+            }, 900 + Math.random() * 400);
+        }
+
+        function handleSend() {
+            const text = input.value.trim();
+            if (!text) return;
+            addMsg(text, 'user', false);
+            input.value = '';
+            botReply(text);
+        }
+
+        // ── Toggle panel ──────────────────────────────────────────
+        function openPanel() {
+            isOpen = true;
+            panel.classList.add('open');
+            if (notif) notif.remove();
+            if (msgCount === 0) {
+                // Welcome message
+                setTimeout(() => {
+                    addMsg(
+                        `¡Hola! Soy ${WA_NAME}, tu asistente de Grupo ARO 👋\n\nEstoy aquí para ayudarte a resolver dudas sobre nuestros servicios y acompañarte en el proceso de transformar tu empresa.\n\n¿Por dónde quieres empezar?`,
+                        'bot', false
+                    );
+                }, 200);
+            }
+            input.focus();
+        }
+
+        function closePanel() {
+            isOpen = false;
+            panel.classList.remove('open');
+        }
+
+        bubble.addEventListener('click', () => isOpen ? closePanel() : openPanel());
+        bubble.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); isOpen ? closePanel() : openPanel(); } });
+        closeBtn.addEventListener('click', closePanel);
+
+        // ── Input & chips ─────────────────────────────────────────
+        sendBtn.addEventListener('click', handleSend);
+        input.addEventListener('keydown', e => { if (e.key === 'Enter') handleSend(); });
+
+        chips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                const msg = chip.dataset.msg;
+                addMsg(msg, 'user', false);
+                botReply(msg);
+            });
+        });
+
+        // ── Auto-open greeting after 8s ───────────────────────────
+        setTimeout(() => {
+            if (!isOpen) openPanel();
+        }, 8000);
+
+    })();
+    </script>
 </body>
 </html>
