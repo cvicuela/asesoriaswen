@@ -1915,7 +1915,7 @@
             messages.scrollTop = messages.scrollHeight;
         }
 
-        function addMsg(data.reply, 'bot', false);text, role, withCta) {
+        function addMsg(text, role, withCta) {
             // Remove typing indicator if present
             const typing = messages.querySelector('.typing');
             if (typing) typing.remove();
@@ -1991,17 +1991,17 @@
                 // Guardar en historial
                 chatHistory.push({ role: 'user',  text: userText });
                 chatHistory.push({ role: 'model', text: data.reply });
-addMsg(data.reply, 'bot', false);            } catch {
+            } catch {
                 // Fallback al KB local si el endpoint falla
                 const entry = getBotReply(userText);
-                addMsg(data.reply, 'bot', false);entry.reply, 'bot', entry.cta);
+                addMsg(entry.reply, 'bot', entry.cta);
             }
         }
 
         function handleSend() {
             const text = input.value.trim();
             if (!text) return;
-            addMsg(data.reply, 'bot', false);text, 'user', false);
+            addMsg(text, 'user', false);
             input.value = '';
             botReply(text);
         }
@@ -2014,10 +2014,7 @@ addMsg(data.reply, 'bot', false);            } catch {
             if (msgCount === 0) {
                 // Welcome message
                 setTimeout(() => {
-                    addMsg(data.reply, 'bot', false);
-                        `¡Hola! Soy ${WA_NAME}, tu asistente de Grupo ARO 👋\n\nEstoy aquí para ayudarte a resolver dudas sobre nuestros servicios y acompañarte en el proceso de transformar tu empresa.\n\n¿Por dónde quieres empezar?`,
-                        'bot', false
-                    );
+                    addMsg(`¡Hola! Soy ${WA_NAME}, tu asistente de Grupo ARO 👋\n\nEstoy aquí para ayudarte a resolver dudas sobre nuestros servicios y acompañarte en el proceso de transformar tu empresa.\n\n¿Por dónde quieres empezar?`, 'bot', false);
                 }, 200);
             }
             input.focus();
@@ -2039,7 +2036,7 @@ addMsg(data.reply, 'bot', false);            } catch {
         chips.forEach(chip => {
             chip.addEventListener('click', () => {
                 const msg = chip.dataset.msg;
-                addMsg(data.reply, 'bot', false);msg, 'user', false);
+                addMsg(msg, 'user', false);
                 botReply(msg);
             });
         });
