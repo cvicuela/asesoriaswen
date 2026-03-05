@@ -1844,8 +1844,8 @@
         const KB = [
             {
                 keys: ['precio','costo','cuánto','cuanto','tarifa','pago','inversión','inversion','plan'],
-                reply: `Nuestros planes están diseñados para distintos momentos de tu empresa:\n\n💼 <b>Estrategia Express</b> – desde RD$ 12,000/mes\n🚀 <b>Lanzamiento & Crecimiento</b> – desde RD$ 28,000/mes\n👑 <b>Dirección Estratégica</b> – a medida\n\nTodo incluye sesiones 1:1, análisis y plan de acción.`,
-                cta: true
+                reply: `Nuestros planes están diseñados para distintos momentos de tu empresa:\n\n💼 <b>Estrategia Express</b> – desde RD$ 12,000/mes\n🚀 <b>Lanzamiento & Crecimiento</b> – desde $2,500 USD/mes\n👑 <b>Dirección Estratégica</b> – a medida\n\nTodo incluye sesiones 1:1, análisis y plan de acción.`,
+                cta: false
             },
             {
                 keys: ['servicio','ofrecen','hacen','ayudan','qué hacen'],
@@ -1855,17 +1855,17 @@
             {
                 keys: ['proceso','como funciona','cómo funciona','pasos','etapas'],
                 reply: `Nuestro proceso tiene 4 etapas:\n\n1️⃣ <b>Diagnóstico</b> – analizamos tu situación actual\n2️⃣ <b>Estrategia</b> – diseñamos tu hoja de ruta\n3️⃣ <b>Implementación</b> – ejecutamos juntas\n4️⃣ <b>Seguimiento</b> – medimos y ajustamos\n\nTodo empieza con una consulta inicial gratuita 🎁`,
-                cta: true
+                cta: false
             },
             {
                 keys: ['agendar','consulta','cita','reunión','reunion','quiero empezar','empezar','contratar','hablar'],
                 reply: `¡Perfecto! Me alegra que quieras dar el primer paso 🌟\n\nPuedo conectarte ahora mismo con nuestro equipo para agendar tu consulta estratégica gratuita.`,
-                cta: true
+                cta: false
             },
             {
                 keys: ['experiencia','clientes','resultados','casos','testimonios'],
                 reply: `Llevamos más de 15 años transformando empresas lideradas por mujeres. Nuestras clientas han logrado:\n\n📈 3x crecimiento en ventas\n💡 Lanzamientos con +80% de conversión\n🏆 Posicionamiento como referentes en su industria\n\n¿Quieres conocer casos específicos de tu sector?`,
-                cta: true
+                cta: false
             },
             {
                 keys: ['hola','hello','buenas','buen dia','buenos dias','buenas tardes','buenas noches','hi'],
@@ -1875,7 +1875,7 @@
             {
                 keys: ['gracias','perfecto','ok','listo','entendido'],
                 reply: `¡Con gusto! Recuerda que tu primera consulta es completamente gratuita. Estamos aquí para ayudarte a llevar tu empresa al siguiente nivel 🚀`,
-                cta: true
+                cta: false
             }
         ];
 
@@ -1888,7 +1888,7 @@
                     return entry;
                 }
             }
-            return { reply: DEFAULT_REPLY, cta: true };
+            return { reply: DEFAULT_REPLY, cta: false };
         }
 
         function waLink(preMsg) {
@@ -1915,7 +1915,7 @@
             messages.scrollTop = messages.scrollHeight;
         }
 
-        function addMsg(text, role, withCta) {
+        function addMsg(data.reply, 'bot', false);text, role, withCta) {
             // Remove typing indicator if present
             const typing = messages.querySelector('.typing');
             if (typing) typing.remove();
@@ -1991,18 +1991,17 @@
                 // Guardar en historial
                 chatHistory.push({ role: 'user',  text: userText });
                 chatHistory.push({ role: 'model', text: data.reply });
-                addMsg(data.reply, 'bot', true);
-            } catch {
+addMsg(data.reply, 'bot', false);            } catch {
                 // Fallback al KB local si el endpoint falla
                 const entry = getBotReply(userText);
-                addMsg(entry.reply, 'bot', entry.cta);
+                addMsg(data.reply, 'bot', false);entry.reply, 'bot', entry.cta);
             }
         }
 
         function handleSend() {
             const text = input.value.trim();
             if (!text) return;
-            addMsg(text, 'user', false);
+            addMsg(data.reply, 'bot', false);text, 'user', false);
             input.value = '';
             botReply(text);
         }
@@ -2015,7 +2014,7 @@
             if (msgCount === 0) {
                 // Welcome message
                 setTimeout(() => {
-                    addMsg(
+                    addMsg(data.reply, 'bot', false);
                         `¡Hola! Soy ${WA_NAME}, tu asistente de Grupo ARO 👋\n\nEstoy aquí para ayudarte a resolver dudas sobre nuestros servicios y acompañarte en el proceso de transformar tu empresa.\n\n¿Por dónde quieres empezar?`,
                         'bot', false
                     );
@@ -2040,7 +2039,7 @@
         chips.forEach(chip => {
             chip.addEventListener('click', () => {
                 const msg = chip.dataset.msg;
-                addMsg(msg, 'user', false);
+                addMsg(data.reply, 'bot', false);msg, 'user', false);
                 botReply(msg);
             });
         });
@@ -2053,4 +2052,5 @@
     })();
     </script>
 </body>
+
 </html>
