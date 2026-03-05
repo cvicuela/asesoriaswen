@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /_headers
+Disallow: /netlify.toml
+
+Sitemap: https://asesoriawen.netlify.app/sitemap.xml
