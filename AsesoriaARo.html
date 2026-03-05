@@ -62,7 +62,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem 6%;
+            padding: 1.5rem clamp(1.5rem, 4%, 6%);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -92,7 +92,7 @@
 
         .nav-links {
             display: flex;
-            gap: 3rem;
+            gap: clamp(1rem, 2vw, 3rem);
             list-style: none;
             align-items: center;
         }
@@ -1014,7 +1014,6 @@
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#expertise">Expertise</a></li>
             <li><a href="#proceso">Proceso</a></li>
-            <li><a href="#testimonios">Testimonios</a></li>
             <li><a href="lanes.html">Líneas</a></li>
             <li><a href="preciosAsesoria.html">Precios</a></li>
             <li><a href="#contacto" class="nav-cta">Agenda una Consulta</a></li>
