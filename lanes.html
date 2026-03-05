@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Aro - Líneas de Servicio | Asesoría Empresarial Estratégica</title>
+    <meta name="description" content="Líneas de servicio de Grupo Aro: asesoría estratégica, consultorías ejecutivas, campañas y programa anual intensivo para emprendedoras y empresas.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #D4A574;
+            --primary-dark: #B8935F;
+            --primary-light: #F0D9B5;
+            --secondary: #2A3F54;
+            --secondary-light: #3d5a77;
+            --accent-rose: #E8B4B8;
+            --bg-cream: #FAF8F5;
+            --bg-white: #FFFFFF;
+            --bg-light-rose: #FFF5F7;
+            --text-dark: #1A1A1A;
+            --text-gray: #6B7280;
+            --text-light: #9CA3AF;
+            --gradient-gold: linear-gradient(135deg, #D4A574 0%, #F0D9B5 100%);
+            --gradient-dark: linear-gradient(135deg, #2A3F54 0%, #1a2838 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* ─── NAV ─────────────────────────────────── */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(42, 63, 84, 0.97);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+        }
+
+        .nav-logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            padding: 0.45rem 0.9rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: rgba(212,165,116,0.1);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            background: rgba(212,165,116,0.15);
+        }
+
+        .nav-cta {
+            background: var(--primary) !important;
+            color: white !important;
+            border-radius: 8px !important;
+            padding: 0.5rem 1.1rem !important;
+            font-weight: 600 !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark) !important;
+            transform: translateY(-1px);
+        }
+
+        /* ─── HERO ─────────────────────────────────── */
+        .hero {
+            background: var(--gradient-dark);
+            padding: 5rem 5% 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 60%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(212,165,116,0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            background: rgba(212,165,116,0.2);
+            border: 1px solid rgba(212,165,116,0.4);
+            color: var(--primary);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 5vw, 3.6rem);
+            font-weight: 500;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero-desc {
+            color: rgba(255,255,255,0.75);
+            font-size: 1.05rem;
+            max-width: 580px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .hero-stat-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+            letter-spacing: 0.05em;
+            margin-top: 0.3rem;
+        }
+
+        /* ─── CONTAINER ────────────────────────────── */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        /* ─── SECTION HEADER ───────────────────────── */
+        .section-block {
+            padding: 4rem 0 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(212,165,116,0.25);
+        }
+
+        .section-num {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(212,165,116,0.35);
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 500;
+            color: var(--secondary);
+            line-height: 1.3;
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-top: 0.2rem;
+        }
+
+        /* ─── PACKAGE GRID ─────────────────────────── */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* ─── PACKAGE CARD ─────────────────────────── */
+        .pkg-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            border: 1px solid rgba(212,165,116,0.18);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .pkg-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .pkg-card.featured {
+            border-color: var(--primary);
+            box-shadow: 0 4px 24px rgba(212,165,116,0.2);
+        }
+
+        .pkg-header {
+            background: var(--gradient-dark);
+            padding: 1.6rem 2rem;
+            position: relative;
+        }
+
+        .pkg-card.featured .pkg-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #8a6a3a 100%);
+        }
+
+        .pkg-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(212,165,116,0.25);
+            border: 1px solid rgba(212,165,116,0.5);
+            color: var(--primary-light);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.7rem;
+            border-radius: 50px;
+        }
+
+        .pkg-card.featured .pkg-badge {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.4);
+            color: white;
+        }
+
+        .pkg-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.55rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.4rem;
+        }
+
+        .pkg-tagline {
+            font-size: 0.83rem;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 1rem;
+        }
+
+        .pkg-meta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .pkg-meta-chip {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.9);
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.25rem 0.7rem;
+            border-radius: 50px;
+        }
+
+        .pkg-price-strip {
+            background: rgba(255,255,255,0.08);
+            padding: 0.8rem 2rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .pkg-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-light);
+        }
+
+        .pkg-card.featured .pkg-price {
+            color: white;
+        }
+
+        .pkg-price-note {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .pkg-body {
+            padding: 1.8rem 2rem;
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .pkg-list-block h4 {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--primary-dark);
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .pkg-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .pkg-list li {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            padding-left: 1.1rem;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .pkg-list li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* ─── EXEC SECTION ─────────────────────────── */
+        .exec-note {
+            background: linear-gradient(135deg, rgba(42,63,84,0.06) 0%, rgba(212,165,116,0.06) 100%);
+            border: 1px solid rgba(212,165,116,0.2);
+            border-left: 4px solid var(--primary);
+            border-radius: 10px;
+            padding: 1rem 1.5rem;
+            font-size: 0.88rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+        }
+
+        .exec-note strong {
+            color: var(--secondary);
+        }
+
+        .exec-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .exec-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            border: 1px solid rgba(212,165,116,0.18);
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .exec-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .exec-header {
+            background: var(--gradient-dark);
+            padding: 1.4rem 1.8rem;
+        }
+
+        .exec-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.3rem;
+        }
+
+        .exec-price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .exec-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-light);
+        }
+
+        .exec-price-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .exec-body {
+            padding: 1.5rem 1.8rem;
+        }
+
+        .list-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--primary-dark);
+            margin-bottom: 0.6rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .std-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .std-list li {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            padding-left: 1.1rem;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .std-list li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .ideal-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.6rem;
+        }
+
+        .ideal-chip {
+            background: rgba(212,165,116,0.1);
+            border: 1px solid rgba(212,165,116,0.3);
+            color: var(--primary-dark);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.7rem;
+            border-radius: 50px;
+        }
+
+        /* ─── CAMPAIGNS ────────────────────────────── */
+        .campaigns-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .camp-card {
+            background: var(--bg-white);
+            border-radius: 16px;
+            border: 1px solid rgba(212,165,116,0.18);
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .camp-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+        }
+
+        .camp-card.featured-camp {
+            border-color: var(--primary);
+        }
+
+        .camp-header {
+            background: var(--gradient-dark);
+            padding: 1.4rem 1.8rem;
+        }
+
+        .camp-card.featured-camp .camp-header {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #8a6a3a 100%);
+        }
+
+        .camp-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.3rem;
+        }
+
+        .camp-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.8rem;
+        }
+
+        .camp-chip {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.9);
+            font-size: 0.73rem;
+            font-weight: 500;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+        }
+
+        .camp-price-strip {
+            background: rgba(255,255,255,0.07);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 0.7rem 1.8rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+
+        .camp-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-light);
+        }
+
+        .camp-price-note {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .camp-body {
+            padding: 1.5rem 1.8rem;
+        }
+
+        .camp-excl {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 0.8rem;
+        }
+
+        /* ─── ANNUAL PROGRAM ───────────────────────── */
+        .annual-block {
+            margin: 2rem 0 4rem;
+            background: var(--gradient-dark);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(42,63,84,0.3);
+        }
+
+        .annual-top {
+            padding: 3rem 3rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .annual-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .annual-num {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(212,165,116,0.3);
+            border: 2px solid rgba(212,165,116,0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .annual-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--primary);
+        }
+
+        .annual-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 500;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 0.6rem;
+        }
+
+        .annual-meta {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .annual-price-box {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(212,165,116,0.3);
+            border-radius: 14px;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .annual-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .annual-price-period {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            margin-top: 0.3rem;
+        }
+
+        .annual-features {
+            padding: 0 3rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .annual-feature {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 0.9rem 1.1rem;
+            font-size: 0.84rem;
+            color: rgba(255,255,255,0.85);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .annual-feature::before {
+            content: '◆';
+            color: var(--primary);
+            font-size: 0.5rem;
+            margin-top: 0.35rem;
+            flex-shrink: 0;
+        }
+
+        .annual-footer {
+            padding: 1.5rem 3rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            flex-wrap: wrap;
+        }
+
+        .annual-ideal {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.65);
+        }
+
+        .annual-ideal strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .annual-cta {
+            background: var(--gradient-gold);
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 0.85rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            white-space: nowrap;
+            box-shadow: 0 4px 20px rgba(212,165,116,0.35);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .annual-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212,165,116,0.5);
+        }
+
+        /* ─── CTA BOTTOM ───────────────────────────── */
+        .cta-section {
+            background: var(--gradient-gold);
+            border-radius: 20px;
+            padding: 3.5rem 3rem;
+            text-align: center;
+            margin: 1rem 0 4rem;
+        }
+
+        .cta-section h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+            font-weight: 500;
+            color: white;
+            margin-bottom: 0.8rem;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.88);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 0.9rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.88rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+
+        /* ─── FOOTER ───────────────────────────────── */
+        footer {
+            background: #111820;
+            color: rgba(255,255,255,0.55);
+            text-align: center;
+            padding: 2.5rem 5%;
+            font-size: 0.83rem;
+            line-height: 1.8;
+        }
+
+        footer span {
+            color: var(--primary);
+        }
+
+        /* ─── RESPONSIVE ───────────────────────────── */
+        @media (max-width: 900px) {
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pkg-body {
+                grid-template-columns: 1fr;
+            }
+
+            .exec-grid,
+            .campaigns-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .annual-top {
+                grid-template-columns: 1fr;
+            }
+
+            .annual-price-box {
+                min-width: unset;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 3.5rem 5% 3rem;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .annual-top,
+            .annual-features,
+            .annual-footer {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="AsesoriaARo.html" class="nav-logo">GRUPO <span>ARO</span></a>
+        <ul class="nav-links">
+            <li><a href="AsesoriaARo.html#inicio">Inicio</a></li>
+            <li><a href="AsesoriaARo.html#servicios">Servicios</a></li>
+            <li><a href="AsesoriaARo.html#expertise">Expertise</a></li>
+            <li><a href="AsesoriaARo.html#proceso">Proceso</a></li>
+            <li><a href="lanes.html" class="active">Líneas</a></li>
+            <li><a href="preciosAsesoria.html">Precios</a></li>
+            <li><a href="AsesoriaARo.html#contacto" class="nav-cta">Agenda una Consulta</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="container">
+            <div class="hero-eyebrow">Portafolio de Servicios</div>
+            <h1>Nuestras <span>Líneas</span> de Servicio</h1>
+            <p class="hero-desc">
+                Cuatro líneas estratégicas diseñadas para acompañarte en cada etapa de tu negocio — desde el primer paso hasta la transformación total.
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-num">16+</div>
+                    <div class="hero-stat-label">Años de experiencia</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num">4</div>
+                    <div class="hero-stat-label">Líneas de servicio</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num">12+</div>
+                    <div class="hero-stat-label">Modalidades disponibles</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- ── SECTION I ───────────────────────────── -->
+        <div class="section-block">
+            <div class="section-header">
+                <div class="section-num">I</div>
+                <div>
+                    <div class="section-title">Línea de Asesoría Estratégica para Emprendedoras y Empresas</div>
+                    <div class="section-subtitle">Paquetes integrales de 4 a 14 semanas con entregables concretos</div>
+                </div>
+            </div>
+
+            <div class="packages-grid">
+
+                <!-- Starter -->
+                <div class="pkg-card">
+                    <div class="pkg-header">
+                        <div class="pkg-badge">Inicial</div>
+                        <div class="pkg-name">Paquete Starter</div>
+                        <div class="pkg-tagline">Para emprendedoras en etapa inicial</div>
+                        <div class="pkg-meta-row">
+                            <span class="pkg-meta-chip">4–6 semanas</span>
+                            <span class="pkg-meta-chip">4 sesiones</span>
+                            <span class="pkg-meta-chip">8 horas</span>
+                        </div>
+                        <div class="pkg-price-strip">
+                            <div class="pkg-price">$3,200</div>
+                            <div class="pkg-price-note">USD · Pago único</div>
+                        </div>
+                    </div>
+                    <div class="pkg-body">
+                        <div class="pkg-list-block">
+                            <h4>Incluye</h4>
+                            <ul class="pkg-list">
+                                <li>Análisis digital básico de mercado y competencia</li>
+                                <li>Validación inicial del modelo de negocio</li>
+                                <li>Definición de propuesta de valor</li>
+                                <li>Estrategia Go-to-Market inicial</li>
+                                <li>Roadmap de 90 días</li>
+                            </ul>
+                        </div>
+                        <div class="pkg-list-block">
+                            <h4>Entregables</h4>
+                            <ul class="pkg-list">
+                                <li>Documento de modelo de negocio estructurado</li>
+                                <li>Resumen estratégico ejecutivo</li>
+                                <li>Checklist de lanzamiento</li>
+                                <li>Grabación de sesiones (opcional)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Launch Pro -->
+                <div class="pkg-card featured">
+                    <div class="pkg-header">
+                        <div class="pkg-badge">Más completo</div>
+                        <div class="pkg-name">Paquete Launch Pro</div>
+                        <div class="pkg-tagline">De conceptualización a lanzamiento</div>
+                        <div class="pkg-meta-row">
+                            <span class="pkg-meta-chip">8–12 semanas</span>
+                            <span class="pkg-meta-chip">10 sesiones</span>
+                            <span class="pkg-meta-chip">20 horas</span>
+                        </div>
+                        <div class="pkg-price-strip">
+                            <div class="pkg-price">$6,800</div>
+                            <div class="pkg-price-note">USD · Pago único</div>
+                        </div>
+                    </div>
+                    <div class="pkg-body">
+                        <div class="pkg-list-block">
+                            <h4>Incluye</h4>
+                            <ul class="pkg-list">
+                                <li>Todo lo del Starter</li>
+                                <li>Desarrollo estratégico de identidad de marca</li>
+                                <li>Lineamientos de posicionamiento</li>
+                                <li>Estrategia de marketing de lanzamiento</li>
+                                <li>Preparación de pitch para inversionistas</li>
+                                <li>Simulación de presentación</li>
+                            </ul>
+                        </div>
+                        <div class="pkg-list-block">
+                            <h4>Entregables</h4>
+                            <ul class="pkg-list">
+                                <li>Documento estratégico completo</li>
+                                <li>Estructura de pitch deck</li>
+                                <li>Plan de lanzamiento 90 días</li>
+                                <li>Matriz de KPIs iniciales</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Refresh -->
+                <div class="pkg-card">
+                    <div class="pkg-header">
+                        <div class="pkg-badge">Establecidos</div>
+                        <div class="pkg-name">Refresh Estratégico</div>
+                        <div class="pkg-tagline">Para negocios que necesitan claridad y reenfoque</div>
+                        <div class="pkg-meta-row">
+                            <span class="pkg-meta-chip">6–8 semanas</span>
+                            <span class="pkg-meta-chip">8 sesiones</span>
+                            <span class="pkg-meta-chip">16 horas</span>
+                        </div>
+                        <div class="pkg-price-strip">
+                            <div class="pkg-price">$5,000</div>
+                            <div class="pkg-price-note">USD · Pago único</div>
+                        </div>
+                    </div>
+                    <div class="pkg-body">
+                        <div class="pkg-list-block">
+                            <h4>Incluye</h4>
+                            <ul class="pkg-list">
+                                <li>Auditoría estratégica de marca y marketing</li>
+                                <li>Diagnóstico de posicionamiento</li>
+                                <li>Ajuste de narrativa</li>
+                                <li>Optimización del modelo comercial</li>
+                                <li>Recomendación de estructura digital</li>
+                            </ul>
+                        </div>
+                        <div class="pkg-list-block">
+                            <h4>Entregables</h4>
+                            <ul class="pkg-list">
+                                <li>Documento diagnóstico</li>
+                                <li>Plan de ajuste estratégico</li>
+                                <li>Plan de crecimiento 6 meses</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transformación Total -->
+                <div class="pkg-card featured">
+                    <div class="pkg-header">
+                        <div class="pkg-badge">Premium</div>
+                        <div class="pkg-name">Transformación Total</div>
+                        <div class="pkg-tagline">Relanzamiento completo de tu negocio</div>
+                        <div class="pkg-meta-row">
+                            <span class="pkg-meta-chip">10–14 semanas</span>
+                            <span class="pkg-meta-chip">12 sesiones</span>
+                            <span class="pkg-meta-chip">24 horas</span>
+                        </div>
+                        <div class="pkg-price-strip">
+                            <div class="pkg-price">$9,500</div>
+                            <div class="pkg-price-note">USD · Pago único</div>
+                        </div>
+                    </div>
+                    <div class="pkg-body">
+                        <div class="pkg-list-block">
+                            <h4>Incluye</h4>
+                            <ul class="pkg-list">
+                                <li>Todo lo del Refresh Estratégico</li>
+                                <li>Rediseño de identidad visual (conceptual estratégico)</li>
+                                <li>Estrategia digital y redes sociales</li>
+                                <li>Campaña de relanzamiento 360°</li>
+                                <li>Plan de retención de clientes</li>
+                                <li>Estrategia de reposicionamiento integral</li>
+                            </ul>
+                        </div>
+                        <div class="pkg-list-block">
+                            <h4>Entregables</h4>
+                            <ul class="pkg-list">
+                                <li>Plan maestro de relanzamiento</li>
+                                <li>Roadmap anual estratégico</li>
+                                <li>Framework de medición de resultados</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── SECTION II ──────────────────────────── -->
+        <div class="section-block">
+            <div class="section-header">
+                <div class="section-num">II</div>
+                <div>
+                    <div class="section-title">Consultorías Ejecutivas</div>
+                    <div class="section-subtitle">Directamente con Wendolyn Rodríguez</div>
+                </div>
+            </div>
+
+            <div class="exec-note">
+                Todas las sesiones ejecutivas son realizadas directamente por <strong>Wendolyn Rodríguez</strong>, previa cita y evaluación del caso.
+            </div>
+
+            <div class="exec-grid">
+
+                <!-- Sesiones Puntuales -->
+                <div class="exec-card">
+                    <div class="exec-header">
+                        <div class="exec-name">Sesiones Puntuales</div>
+                        <div class="exec-price-row">
+                            <div class="exec-price">$400</div>
+                            <div class="exec-price-label">por sesión · 2 horas · 200 USD/hora</div>
+                        </div>
+                    </div>
+                    <div class="exec-body">
+                        <div class="list-label">Incluye</div>
+                        <ul class="std-list">
+                            <li>Sesión estratégica individual (2 horas)</li>
+                            <li>Análisis profundo del caso</li>
+                            <li>Recomendaciones accionables</li>
+                            <li>Documento resumen ejecutivo</li>
+                            <li>Seguimiento vía email por 1 semana</li>
+                        </ul>
+                        <div class="list-label">Ideal para</div>
+                        <div class="ideal-chips">
+                            <span class="ideal-chip">Decisiones clave</span>
+                            <span class="ideal-chip">Reestructuración urgente</span>
+                            <span class="ideal-chip">Validación estratégica</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Iguala Mensual -->
+                <div class="exec-card">
+                    <div class="exec-header">
+                        <div class="exec-name">Iguala Mensual Ejecutiva</div>
+                        <div class="exec-price-row">
+                            <div class="exec-price">$2,300</div>
+                            <div class="exec-price-label">/ mes · Mínimo 3 meses · 8 horas</div>
+                        </div>
+                    </div>
+                    <div class="exec-body">
+                        <div class="list-label">Incluye</div>
+                        <ul class="std-list">
+                            <li>4 sesiones estratégicas (1 hora cada una)</li>
+                            <li>4 horas flexibles para revisión y análisis</li>
+                            <li>Disponibilidad vía WhatsApp (horario laboral)</li>
+                            <li>Revisión de decisiones y planes</li>
+                            <li>Acceso prioritario a recursos estratégicos</li>
+                            <li>Reporte mensual de progreso</li>
+                        </ul>
+                        <div class="list-label">Enfoque</div>
+                        <div class="ideal-chips">
+                            <span class="ideal-chip">Dirección estratégica continua</span>
+                            <span class="ideal-chip">Ejecutivas y fundadoras</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── SECTION III ─────────────────────────── -->
+        <div class="section-block">
+            <div class="section-header">
+                <div class="section-num">III</div>
+                <div>
+                    <div class="section-title">Campañas</div>
+                    <div class="section-subtitle">Estrategia de campaña enfocada en resultados medibles</div>
+                </div>
+            </div>
+
+            <div class="campaigns-grid">
+
+                <!-- Campaña Digital Enfocada -->
+                <div class="camp-card">
+                    <div class="camp-header">
+                        <div class="camp-name">Campaña Digital Enfocada</div>
+                        <div class="camp-chips">
+                            <span class="camp-chip">30 días</span>
+                            <span class="camp-chip">3 sesiones estratégicas</span>
+                        </div>
+                        <div class="camp-price-strip">
+                            <div class="camp-price">$2,500</div>
+                            <div class="camp-price-note">USD · Por campaña</div>
+                        </div>
+                    </div>
+                    <div class="camp-body">
+                        <div class="list-label">Incluye</div>
+                        <ul class="std-list">
+                            <li>Definición clara de objetivos</li>
+                            <li>Estrategia de campaña estructurada</li>
+                            <li>Plan de contenido 30 días</li>
+                            <li>Recomendaciones de inversión</li>
+                            <li>3 sesiones estratégicas (1 hora cada una)</li>
+                            <li>Análisis final de resultados</li>
+                        </ul>
+                        <div class="camp-excl">* No incluye ejecución de pauta.</div>
+                    </div>
+                </div>
+
+                <!-- Campaña Integral 360° -->
+                <div class="camp-card featured-camp">
+                    <div class="camp-header">
+                        <div class="camp-name">Campaña Integral 360°</div>
+                        <div class="camp-chips">
+                            <span class="camp-chip">60–90 días</span>
+                            <span class="camp-chip">8 sesiones estratégicas</span>
+                        </div>
+                        <div class="camp-price-strip">
+                            <div class="camp-price">$5,000</div>
+                            <div class="camp-price-note">USD · Por campaña</div>
+                        </div>
+                    </div>
+                    <div class="camp-body">
+                        <div class="list-label">Incluye</div>
+                        <ul class="std-list">
+                            <li>Todo lo de la Campaña Digital Enfocada</li>
+                            <li>Estrategia online y offline</li>
+                            <li>Coordinación con proveedores</li>
+                            <li>Gestión de relaciones públicas</li>
+                            <li>Plan de activaciones y eventos</li>
+                            <li>8 sesiones estratégicas</li>
+                            <li>Reportes semanales de progreso</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ── SECTION IV ──────────────────────────── -->
+        <div class="annual-block">
+            <div class="annual-top">
+                <div>
+                    <div class="annual-eyebrow">
+                        <div class="annual-num">IV</div>
+                        <div class="annual-label">Máximo nivel de acompañamiento</div>
+                    </div>
+                    <div class="annual-title">Programa Anual Intensivo</div>
+                    <div class="annual-meta">Pago bimensual · 48 sesiones · 96 horas totales</div>
+                </div>
+                <div class="annual-price-box">
+                    <div class="annual-price">$14,500</div>
+                    <div class="annual-price-period">USD Anuales</div>
+                </div>
+            </div>
+
+            <div class="annual-features">
+                <div class="annual-feature">Mentoría estratégica anual completa</div>
+                <div class="annual-feature">Revisión y construcción del plan estratégico anual</div>
+                <div class="annual-feature">Revisiones trimestrales profundas</div>
+                <div class="annual-feature">Desarrollo de recursos estratégicos necesarios</div>
+                <div class="annual-feature">Preparación y acompañamiento en presentaciones a inversionistas</div>
+                <div class="annual-feature">Soporte continuo en decisiones clave</div>
+            </div>
+
+            <div class="annual-footer">
+                <div class="annual-ideal">
+                    <strong>Ideal para</strong>
+                    Empresas en expansión o transformación profunda que requieren presencia estratégica constante a lo largo del año.
+                </div>
+                <a href="https://wa.me/18299420405?text=Hola, me interesa el Programa Anual Intensivo" target="_blank" class="annual-cta">
+                    Solicitar información →
+                </a>
+            </div>
+        </div>
+
+        <!-- ── CTA ────────────────────────────────── -->
+        <div class="cta-section">
+            <h2>¿Lista para dar el siguiente paso?</h2>
+            <p>Agenda tu consulta inicial gratuita y descubramos juntas cuál línea se adapta mejor a tu momento empresarial.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/18299420405?text=Hola, me interesa conocer más sobre sus líneas de servicio" target="_blank" class="btn-white">
+                    Agenda por WhatsApp
+                </a>
+                <a href="preciosAsesoria.html" class="btn-ghost">
+                    Ver precios detallados
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 <span>Grupo Aro, SRL</span> · Studio Est. 2008 · Todos los derechos reservados</p>
+        <p style="margin-top:0.4rem; font-size:0.78rem; font-style:italic;">
+            Precios válidos hasta Diciembre 2025 · Sujetos a cambio sin previo aviso · Precios en dólares estadounidenses (USD)
+        </p>
+    </footer>
+
+</body>
+</html>
