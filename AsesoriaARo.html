@@ -1297,7 +1297,7 @@
                         <div class="contact-item-icon">📱</div>
                         <div class="contact-item-text">
                             <h4>WhatsApp</h4>
-                            <p><a href="https://wa.me/18299420405" target="_blank">+1 (829) 942-0405</a></p>
+                            <p><a href="https://wa.me/18299420405" target="_blank" rel="noopener noreferrer">+1 (829) 942-0405</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -1372,9 +1372,9 @@
                     Asesoría empresarial estratégica para mujeres emprendedoras y ejecutivas que buscan transformar sus proyectos.
                 </p>
                 <div class="footer-social">
-                    <a href="https://www.instagram.com/mynameisaro/" target="_blank" class="social-link">📷</a>
-                    <a href="https://www.linkedin.com/in/wendolynrodriguez/" target="_blank" class="social-link">💼</a>
-                    <a href="https://wa.me/18299420405" target="_blank" class="social-link">💬</a>
+                    <a href="https://www.instagram.com/mynameisaro/" target="_blank" rel="noopener noreferrer" class="social-link">📷</a>
+                    <a href="https://www.linkedin.com/in/wendolynrodriguez/" target="_blank" rel="noopener noreferrer" class="social-link">💼</a>
+                    <a href="https://wa.me/18299420405" target="_blank" rel="noopener noreferrer" class="social-link">💬</a>
                 </div>
             </div>
             <div class="footer-section">
@@ -1924,14 +1924,15 @@
             div.className = `wa-msg ${role}`;
 
             if (role === 'bot') {
-                div.innerHTML = text.replace(/\n/g, '<br>');
+                // Safe DOM rendering: only allow <b> tags and line breaks — no raw innerHTML from any source
+                renderSafe(div, text);
                 if (withCta) {
                     const link = document.createElement('a');
                     link.className = 'wa-cta-btn';
                     link.href = waLink(text.substring(0, 80));
                     link.target = '_blank';
                     link.rel = 'noopener noreferrer';
-                    link.innerHTML = '💬 Continuar por WhatsApp';
+                    link.textContent = '💬 Continuar por WhatsApp';
                     const wrap = document.createElement('div');
                     wrap.appendChild(link);
                     div.appendChild(document.createElement('br'));
@@ -1946,20 +1947,56 @@
             msgCount++;
         }
 
+        // Safe renderer — soporta <b>text</b>, **text** (markdown) y saltos de línea.
+        // Nunca usa innerHTML con contenido externo.
+        function renderSafe(container, text) {
+            // Normaliza **bold** de markdown a etiquetas internas antes de dividir
+            const normalized = text.replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
+            const parts = normalized.split(/(<b>[^<]*<\/b>|\n)/);
+            parts.forEach(part => {
+                if (part === '\n') {
+                    container.appendChild(document.createElement('br'));
+                } else if (/^<b>[^<]*<\/b>$/.test(part)) {
+                    const b = document.createElement('b');
+                    b.textContent = part.slice(3, -4);
+                    container.appendChild(b);
+                } else if (part) {
+                    container.appendChild(document.createTextNode(part));
+                }
+            });
+        }
+
         function showTyping() {
             const div = document.createElement('div');
             div.className = 'wa-msg bot typing';
-            div.innerHTML = '<span></span><span></span><span></span>';
+            for (let i = 0; i < 3; i++) div.appendChild(document.createElement('span'));
             messages.appendChild(div);
             scrollBottom();
         }
 
-        function botReply(userText) {
+        // Historial de conversación para contexto multi-turno
+        const chatHistory = [];
+
+        async function botReply(userText) {
             showTyping();
-            setTimeout(() => {
+            try {
+                const res = await fetch('/.netlify/functions/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: userText, history: chatHistory.slice(-6) })
+                });
+                if (!res.ok) throw new Error('API ' + res.status);
+                const data = await res.json();
+                if (!data.reply) throw new Error('empty');
+                // Guardar en historial
+                chatHistory.push({ role: 'user',  text: userText });
+                chatHistory.push({ role: 'model', text: data.reply });
+                addMsg(data.reply, 'bot', true);
+            } catch {
+                // Fallback al KB local si el endpoint falla
                 const entry = getBotReply(userText);
                 addMsg(entry.reply, 'bot', entry.cta);
-            }, 900 + Math.random() * 400);
+            }
         }
 
         function handleSend() {
