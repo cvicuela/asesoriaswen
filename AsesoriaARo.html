@@ -3,33 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grupo Aro - Asesoría Empresarial Estratégica | Consultoría para Líderes</title>
-    <meta name="description" content="Asesoría empresarial estratégica para mujeres emprendedoras y ejecutivas. Especialistas en lanzamientos, relanzamientos y campañas de alto impacto.">
-    
+    <title>Grupo Aro - Asesoria Empresarial Estrategica | Consultoria para Lideres</title>
+    <meta name="description" content="Asesoria empresarial estrategica para mujeres emprendedoras y ejecutivas. Especialistas en lanzamientos, relanzamientos y campanas de alto impacto.">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            /* Paleta Sofisticada */
-            --primary: #D4A574;
-            --primary-dark: #B8935F;
-            --accent-rose: #E8B4B8;
-            --accent-coral: #FF6347;
-            --secondary: #2A3F54;
-            --bg-cream: #FAF8F5;
-            --bg-white: #FFFFFF;
-            --bg-light-rose: #FFF5F7;
-            --text-dark: #1A1A1A;
-            --text-gray: #6B7280;
-            --text-light-gray: #9CA3AF;
-            
-            /* Gradientes Elegantes */
-            --gradient-gold: linear-gradient(135deg, #D4A574 0%, #F0D9B5 100%);
-            --gradient-rose: linear-gradient(135deg, #E8B4B8 0%, #FFF5F7 100%);
-            --gradient-overlay: linear-gradient(180deg, rgba(42, 63, 84, 0.9) 0%, rgba(42, 63, 84, 0.7) 100%);
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-400: #a3a3a3;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --gray-800: #262626;
+            --gray-900: #171717;
+            --accent: #D4A574;
+            --accent-dark: #B8935F;
         }
 
         * {
@@ -43,577 +40,551 @@
         }
 
         body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg-cream);
-            color: var(--text-dark);
-            line-height: 1.7;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Typography */
-        h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-
-        /* Navigation */
+        /* ── Navigation ── */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            padding: 1.5rem clamp(1.5rem, 4%, 6%);
+            padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(212, 165, 116, 0.15);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            mix-blend-mode: difference;
         }
 
         nav.scrolled {
-            padding: 1rem 6%;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            mix-blend-mode: normal;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem clamp(1.5rem, 5vw, 4rem);
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        nav.scrolled .logo-text,
+        nav.scrolled .nav-links a,
+        nav.scrolled .mobile-menu-btn {
+            color: var(--black);
         }
 
         .logo-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--secondary);
-            letter-spacing: 1px;
-        }
-
-        .logo-text span {
-            color: var(--primary);
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--white);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: color 0.4s;
         }
 
         .nav-links {
             display: flex;
-            gap: clamp(1rem, 2vw, 3rem);
+            gap: clamp(1.5rem, 3vw, 3rem);
             list-style: none;
             align-items: center;
         }
 
         .nav-links a {
-            color: var(--text-dark);
+            color: var(--white);
             text-decoration: none;
             font-weight: 500;
-            font-size: 0.95rem;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 1.5px;
-            background: var(--primary);
-            transition: width 0.3s ease;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: opacity 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+            opacity: 0.6;
         }
 
         .nav-cta {
-            padding: 0.75rem 1.8rem;
-            background: var(--gradient-gold);
-            color: white;
-            border-radius: 50px;
+            padding: 0.7rem 1.8rem;
+            border: 1.5px solid currentColor;
+            border-radius: 0;
             font-weight: 600;
-            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            transition: all 0.3s;
+        }
+
+        nav.scrolled .nav-cta {
+            border-color: var(--black);
         }
 
         .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.3);
+            background: var(--white);
+            color: var(--black) !important;
+            opacity: 1 !important;
         }
 
-        .nav-cta::after {
+        nav.scrolled .nav-cta:hover {
+            background: var(--black);
+            color: var(--white) !important;
+        }
+
+        .mobile-menu-btn {
             display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            color: var(--white);
+            cursor: pointer;
+            transition: color 0.4s;
         }
 
-        /* Hero Section */
+        /* ── Hero ── */
         .hero {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            align-items: center;
-            gap: 4rem;
-            padding: 8rem 6% 4rem;
-            background: var(--bg-cream);
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+
+        .hero-carousel {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-slide {
+            min-width: 100%;
+            height: 100%;
             position: relative;
         }
 
-        .hero::before {
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-slide::after {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: var(--gradient-rose);
-            opacity: 0.3;
-            z-index: 0;
-            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.2) 100%);
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
-            animation: fadeInUp 1s ease-out;
+            z-index: 2;
+            padding: clamp(2rem, 5vw, 5rem);
+            width: 100%;
+            max-width: 1000px;
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-label {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background: var(--bg-light-rose);
-            color: var(--primary-dark);
-            border-radius: 50px;
+        .hero-counter {
             font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            font-variant-numeric: tabular-nums;
         }
 
         .hero-title {
-            font-size: clamp(3rem, 6vw, 5.5rem);
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            color: var(--secondary);
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 400;
+            color: var(--white);
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
         }
 
-        .hero-title .highlight {
-            color: var(--primary);
+        .hero-title em {
             font-style: italic;
+            color: var(--accent);
         }
 
-        .hero-description {
-            font-size: 1.25rem;
-            color: var(--text-gray);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-            max-width: 600px;
+        .hero-subtitle {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            color: rgba(255,255,255,0.7);
+            max-width: 550px;
+            line-height: 1.7;
+            font-weight: 300;
         }
 
-        .hero-buttons {
+        .hero-nav {
+            position: absolute;
+            bottom: clamp(2rem, 5vw, 5rem);
+            right: clamp(2rem, 5vw, 5rem);
+            z-index: 2;
             display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
+            gap: 0.75rem;
         }
 
-        .btn {
-            padding: 1.1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.7rem;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--secondary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(42, 63, 84, 0.3);
-        }
-
-        .btn-secondary {
+        .hero-nav button {
+            width: 50px;
+            height: 50px;
+            border: 1.5px solid rgba(255,255,255,0.4);
             background: transparent;
-            color: var(--text-dark);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-        }
-
-        .hero-visual {
-            position: relative;
-            z-index: 1;
-            height: 600px;
+            color: var(--white);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .hero-image-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        .hero-nav button:hover {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
         }
 
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.95);
-        }
-
-        .hero-stats {
-            position: absolute;
-            bottom: -30px;
-            left: -30px;
-            background: white;
-            padding: 2rem 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: var(--primary);
-            display: block;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            margin-top: 0.5rem;
-            font-weight: 500;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 8rem 6%;
-            background: white;
-        }
-
-        .section-header {
-            max-width: 700px;
-            margin: 0 auto 5rem;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            color: var(--primary);
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            color: var(--secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-
-        .section-description {
-            font-size: 1.1rem;
-            color: var(--text-gray);
-            line-height: 1.8;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            max-width: 1400px;
+        /* ── Statement Section ── */
+        .statement {
+            padding: clamp(5rem, 10vw, 10rem) clamp(1.5rem, 5vw, 4rem);
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .service-card {
-            background: var(--bg-cream);
-            padding: 3rem 2.5rem;
-            border-radius: 20px;
-            transition: all 0.4s ease;
-            border: 2px solid transparent;
+        .statement-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1.35;
+            font-weight: 400;
+            color: var(--gray-800);
+        }
+
+        .statement-text a {
+            color: var(--black);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1px;
+            transition: color 0.3s;
+        }
+
+        .statement-text a:hover {
+            color: var(--accent);
+        }
+
+        /* ── Work Grid (Services) ── */
+        .work-section {
+            padding: 0 clamp(1.5rem, 5vw, 4rem) clamp(5rem, 10vw, 8rem);
+        }
+
+        .work-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .work-section-header h2 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gray-500);
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .work-item {
             position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            background: var(--gray-100);
+        }
+
+        .work-item:nth-child(1) { grid-column: span 7; }
+        .work-item:nth-child(2) { grid-column: span 5; }
+        .work-item:nth-child(3) { grid-column: span 5; }
+        .work-item:nth-child(4) { grid-column: span 7; }
+        .work-item:nth-child(5) { grid-column: span 6; }
+        .work-item:nth-child(6) { grid-column: span 6; }
+
+        .work-item-inner {
+            position: relative;
+            padding-bottom: 65%;
             overflow: hidden;
         }
 
-        .service-card::before {
-            content: '';
+        .work-item img {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
-            background: var(--gradient-rose);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: 0;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 50px rgba(212, 165, 116, 0.2);
+        .work-item:hover img {
+            transform: scale(1.03);
+            filter: brightness(0.85);
         }
 
-        .service-card:hover::before {
-            opacity: 0.5;
-        }
-
-        .service-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-gold);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .service-title {
-            font-size: 1.6rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .service-description {
-            color: var(--text-gray);
-            line-height: 1.8;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Expertise Section */
-        .expertise {
-            padding: 8rem 6%;
-            background: var(--secondary);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .expertise::before {
-            content: '';
+        .work-item-overlay {
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 40%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(212,165,116,0.1)" stroke-width="0.5"/></svg>');
-            background-size: 100px 100px;
-            opacity: 0.3;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s;
         }
 
-        .expertise-content {
+        .work-item:hover .work-item-overlay {
+            opacity: 1;
+        }
+
+        .work-item-tag {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 0.5rem;
+        }
+
+        .work-item-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.3rem, 2vw, 1.8rem);
+            color: var(--white);
+            font-weight: 400;
+            line-height: 1.3;
+        }
+
+        .work-item-desc {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.75);
+            margin-top: 0.5rem;
+            line-height: 1.5;
+            max-width: 400px;
+        }
+
+        /* ── Expertise/About Section ── */
+        .about-section {
+            background: var(--gray-900);
+            color: var(--white);
+            padding: clamp(5rem, 10vw, 10rem) clamp(1.5rem, 5vw, 4rem);
+        }
+
+        .about-inner {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 6rem;
+            gap: clamp(3rem, 6vw, 8rem);
             align-items: center;
         }
 
-        .expertise-text h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 4.5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.15;
             margin-bottom: 2rem;
-            line-height: 1.2;
         }
 
-        .expertise-text h2 .highlight {
-            color: var(--primary);
+        .about-text h2 em {
+            font-style: italic;
+            color: var(--accent);
         }
 
-        .expertise-text p {
-            font-size: 1.15rem;
+        .about-text p {
+            font-size: 1.05rem;
+            color: var(--gray-400);
             line-height: 1.8;
-            color: rgba(255, 255, 255, 0.85);
             margin-bottom: 3rem;
         }
 
-        .expertise-list {
-            list-style: none;
+        .about-stats {
             display: grid;
-            gap: 1.5rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            border-top: 1px solid var(--gray-700);
+            padding-top: 2.5rem;
         }
 
-        .expertise-item {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            border-left: 3px solid var(--primary);
-            transition: all 0.3s ease;
+        .about-stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 400;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
         }
 
-        .expertise-item:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateX(10px);
+        .about-stat-label {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 500;
         }
 
-        .expertise-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-gold);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .expertise-item-text h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .expertise-item-text p {
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin: 0;
-        }
-
-        .expertise-visual {
+        .about-image {
             position: relative;
-            height: 500px;
+            height: 600px;
         }
 
-        .expertise-image {
+        .about-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 25px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
         }
 
-        /* Process Section */
-        .process {
-            padding: 8rem 6%;
-            background: var(--bg-cream);
+        /* ── Process Section ── */
+        .process-section {
+            padding: clamp(5rem, 10vw, 10rem) clamp(1.5rem, 5vw, 4rem);
+            background: var(--white);
         }
 
-        .process-grid {
+        .process-inner {
             max-width: 1200px;
-            margin: 4rem auto 0;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            position: relative;
+            margin: 0 auto;
         }
 
-        .process-step {
-            text-align: center;
-            position: relative;
-            padding: 2rem 1.5rem;
+        .process-header {
+            margin-bottom: 5rem;
+            max-width: 600px;
         }
 
-        .process-number {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient-gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
+        .process-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
         }
 
-        .process-title {
-            font-size: 1.4rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-        }
-
-        .process-description {
-            color: var(--text-gray);
+        .process-header p {
+            font-size: 1.05rem;
+            color: var(--gray-500);
             line-height: 1.7;
         }
 
-        /* Testimonials Section */
-        .testimonials {
-            padding: 8rem 6%;
-            background: white;
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+
+        .process-step {
+            padding: 2.5rem 2rem;
+            border-left: 1px solid var(--gray-200);
+            position: relative;
+            transition: background 0.3s;
+        }
+
+        .process-step:first-child {
+            border-left: none;
+        }
+
+        .process-step:hover {
+            background: var(--gray-50);
+        }
+
+        .process-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: var(--gray-200);
+            line-height: 1;
+            margin-bottom: 2rem;
+            transition: color 0.3s;
+        }
+
+        .process-step:hover .process-number {
+            color: var(--accent);
+        }
+
+        .process-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .process-description {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+
+        /* ── Testimonials ── */
+        .testimonials-section {
+            padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+            background: var(--gray-50);
+        }
+
+        .testimonials-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .testimonials-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+            font-weight: 400;
+            line-height: 1.2;
         }
 
         .testimonials-grid {
-            max-width: 1400px;
-            margin: 4rem auto 0;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
+            gap: 2rem;
         }
 
         .testimonial-card {
-            background: var(--bg-cream);
+            background: var(--white);
             padding: 3rem 2.5rem;
-            border-radius: 20px;
+            border: 1px solid var(--gray-200);
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            border-color: transparent;
         }
 
-        .quote-icon {
+        .testimonial-quote {
+            font-family: 'Playfair Display', serif;
             font-size: 4rem;
-            color: var(--primary);
-            opacity: 0.2;
+            color: var(--gray-200);
             line-height: 1;
             margin-bottom: 1rem;
         }
 
         .testimonial-text {
-            font-size: 1.05rem;
-            color: var(--text-dark);
+            font-size: 1rem;
+            color: var(--gray-600);
             line-height: 1.8;
             margin-bottom: 2rem;
             font-style: italic;
@@ -626,55 +597,63 @@
         }
 
         .author-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--gradient-gold);
+            width: 48px;
+            height: 48px;
+            background: var(--black);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--white);
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
         }
 
         .author-info h4 {
-            font-size: 1.1rem;
-            color: var(--secondary);
-            margin-bottom: 0.2rem;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 0.15rem;
+            font-family: 'Inter', sans-serif;
         }
 
         .author-info p {
-            font-size: 0.9rem;
-            color: var(--text-gray);
+            font-size: 0.8rem;
+            color: var(--gray-500);
         }
 
-        /* CTA Section */
+        /* ── CTA Section ── */
         .cta-section {
-            padding: 8rem 6%;
-            background: var(--gradient-overlay), url('https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1920&h=800&fit=crop&q=80') center/cover;
+            padding: clamp(5rem, 10vw, 10rem) clamp(1.5rem, 5vw, 4rem);
+            background: var(--black);
             text-align: center;
-            color: white;
             position: relative;
         }
 
         .cta-content {
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
 
         .cta-content h2 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            color: var(--white);
+            font-weight: 400;
+            line-height: 1.15;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+        }
+
+        .cta-content h2 em {
+            font-style: italic;
+            color: var(--accent);
         }
 
         .cta-content p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            color: var(--gray-400);
             margin-bottom: 3rem;
-            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
         }
 
         .cta-buttons {
@@ -684,33 +663,60 @@
             flex-wrap: wrap;
         }
 
+        .btn {
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            cursor: pointer;
+            border: none;
+        }
+
         .btn-white {
-            background: white;
-            color: var(--secondary);
+            background: var(--white);
+            color: var(--black);
         }
 
         .btn-white:hover {
-            background: var(--primary);
-            color: white;
+            background: var(--accent);
+            color: var(--white);
         }
 
-        /* Contact Section */
-        .contact {
-            padding: 8rem 6%;
-            background: var(--bg-cream);
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 1.5px solid var(--gray-600);
         }
 
-        .contact-content {
+        .btn-outline:hover {
+            border-color: var(--white);
+        }
+
+        /* ── Contact Section ── */
+        .contact-section {
+            padding: clamp(5rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+            background: var(--white);
+        }
+
+        .contact-inner {
             max-width: 1200px;
-            margin: 4rem auto 0;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1.5fr;
             gap: 5rem;
         }
 
-        .contact-info h3 {
-            font-size: 2rem;
-            color: var(--secondary);
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 400;
+            line-height: 1.2;
             margin-bottom: 2rem;
         }
 
@@ -723,92 +729,87 @@
         .contact-item {
             display: flex;
             align-items: flex-start;
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
 
         .contact-item-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-gold);
-            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            background: var(--gray-100);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             flex-shrink: 0;
-            color: white;
         }
 
         .contact-item-text h4 {
-            font-size: 1rem;
-            color: var(--text-gray);
-            margin-bottom: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--gray-500);
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.3rem;
         }
 
         .contact-item-text p {
-            font-size: 1.1rem;
-            color: var(--text-dark);
+            font-size: 1rem;
+            color: var(--black);
             font-weight: 500;
         }
 
         .contact-item-text a {
-            color: var(--text-dark);
+            color: var(--black);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
         }
 
         .contact-item-text a:hover {
-            color: var(--primary);
+            color: var(--accent);
         }
 
         .contact-form {
-            background: white;
+            background: var(--gray-50);
             padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--gray-200);
         }
 
         .form-group {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.5rem;
             font-weight: 600;
-            color: var(--text-dark);
-            font-size: 0.95rem;
+            color: var(--black);
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 1rem 1.2rem;
-            background: var(--bg-cream);
-            border: 2px solid transparent;
-            border-radius: 10px;
-            color: var(--text-dark);
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
+            padding: 0.9rem 1rem;
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            color: var(--black);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s;
         }
 
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: var(--primary);
-            background: white;
+            border-color: var(--black);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 140px;
+            min-height: 120px;
         }
 
         .form-row {
@@ -817,498 +818,498 @@
             gap: 1.5rem;
         }
 
-        /* Footer */
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: var(--accent-dark);
+        }
+
+        /* ── Footer ── */
         footer {
-            padding: 4rem 6% 2rem;
-            background: var(--secondary);
-            color: white;
+            padding: 4rem clamp(1.5rem, 5vw, 4rem) 2rem;
+            background: var(--black);
+            color: var(--white);
         }
 
         .footer-content {
             max-width: 1400px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 3rem;
             padding-bottom: 3rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid var(--gray-800);
         }
 
         .footer-brand h3 {
-            font-size: 2rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
             margin-bottom: 1rem;
         }
 
-        .footer-brand h3 span {
-            color: var(--primary);
-        }
-
         .footer-brand p {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--gray-500);
             line-height: 1.7;
+            max-width: 320px;
+            font-size: 0.9rem;
+        }
+
+        .footer-col h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray-400);
             margin-bottom: 1.5rem;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .footer-section h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
         }
 
         .footer-links {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 0.75rem;
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--gray-500);
             text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
         }
 
         .footer-links a:hover {
-            color: white;
-            padding-left: 5px;
+            color: var(--white);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--gray-700);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
         }
 
         .footer-bottom {
-            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding-top: 2rem;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
+            color: var(--gray-600);
+            font-size: 0.8rem;
         }
 
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            color: var(--text-dark);
-            cursor: pointer;
+        .footer-bottom a {
+            color: var(--gray-500);
+            text-decoration: none;
+            transition: color 0.3s;
         }
 
-        /* Responsive */
+        .footer-bottom a:hover {
+            color: var(--white);
+        }
+
+        /* ── Scroll animations ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Responsive ── */
         @media (max-width: 1024px) {
-            .nav-links {
-                display: none;
-            }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
 
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-                padding-top: 6rem;
-            }
-
-            .hero-visual {
-                height: 400px;
-            }
-
-            .hero-stats {
-                position: static;
-                margin-top: 2rem;
-            }
-
-            .services-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .process-grid {
+            .work-grid {
                 grid-template-columns: 1fr 1fr;
             }
+            .work-item:nth-child(n) { grid-column: span 1; }
 
-            .expertise-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
+            .about-inner { grid-template-columns: 1fr; }
+            .about-image { height: 400px; }
+            .about-stats { grid-template-columns: repeat(3, 1fr); }
 
-            .expertise-visual {
-                height: 400px;
-            }
+            .process-grid { grid-template-columns: 1fr 1fr; }
+            .process-step { border-left: none; border-top: 1px solid var(--gray-200); }
+            .process-step:first-child { border-top: none; }
+            .process-step:nth-child(2) { border-top: none; }
 
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-                gap: 3rem;
-            }
+            .testimonials-grid { grid-template-columns: 1fr; }
+
+            .contact-inner { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 640px) {
-            .hero-buttons,
-            .cta-buttons {
-                flex-direction: column;
-            }
+            .work-grid { grid-template-columns: 1fr; }
 
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
+            .about-stats { grid-template-columns: 1fr; gap: 1.5rem; }
+            .about-image { height: 300px; }
 
-            .process-grid {
-                grid-template-columns: 1fr;
-            }
+            .process-grid { grid-template-columns: 1fr; }
+            .process-step:nth-child(2) { border-top: 1px solid var(--gray-200); }
 
-            .hero-stats {
-                grid-template-columns: 1fr;
-            }
+            .form-row { grid-template-columns: 1fr; }
 
-            .form-row {
-                grid-template-columns: 1fr;
-            }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; justify-content: center; }
 
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
+            .footer-content { flex-direction: column; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
         }
 
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+        /* ── Mobile nav overlay ── */
+        .mobile-nav {
+            position: fixed;
+            inset: 0;
+            background: var(--black);
+            z-index: 999;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .mobile-nav.open {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .mobile-nav a:hover {
+            opacity: 0.5;
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 1.5rem;
+            right: clamp(1.5rem, 5vw, 4rem);
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav id="navbar">
-        <div class="logo-text">
-            GRUPO <span>ARO</span>
-        </div>
+        <div class="logo-text">GRUPO ARO</div>
         <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
             <li><a href="#servicios">Servicios</a></li>
             <li><a href="#expertise">Expertise</a></li>
             <li><a href="#proceso">Proceso</a></li>
-            <li><a href="lanes.html">Líneas</a></li>
+            <li><a href="lanes.html">Lineas</a></li>
             <li><a href="preciosAsesoria.html">Precios</a></li>
-            <li><a href="#contacto" class="nav-cta">Agenda una Consulta</a></li>
+            <li><a href="#contacto" class="nav-cta">Contacto</a></li>
         </ul>
-        <button class="mobile-menu-btn">☰</button>
+        <button class="mobile-menu-btn" id="menuBtn">&#9776;</button>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">&times;</button>
+        <a href="#servicios" class="mobile-nav-link">Servicios</a>
+        <a href="#expertise" class="mobile-nav-link">Expertise</a>
+        <a href="#proceso" class="mobile-nav-link">Proceso</a>
+        <a href="lanes.html">Lineas</a>
+        <a href="preciosAsesoria.html">Precios</a>
+        <a href="#contacto" class="mobile-nav-link">Contacto</a>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+        <div class="hero-carousel" id="heroCarousel">
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1920&h=1080&fit=crop&q=80" alt="Mujer ejecutiva profesional">
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1920&h=1080&fit=crop&q=80" alt="Equipo estrategico">
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1920&h=1080&fit=crop&q=80" alt="Consultoria empresarial">
+            </div>
+        </div>
         <div class="hero-content">
-            <span class="hero-label">Asesoría Empresarial Estratégica</span>
-            <h1 class="hero-title">
-                Transformamos tu <span class="highlight">Visión</span> en Realidad Empresarial
-            </h1>
-            <p class="hero-description">
-                Consultoría especializada para mujeres emprendedoras y ejecutivas que buscan lanzar, relanzar o escalar sus proyectos con estrategias de alto impacto.
-            </p>
-            <div class="hero-buttons">
-                <a href="#contacto" class="btn btn-primary">
-                    Agenda tu Consulta Estratégica
-                    <span>→</span>
-                </a>
-                <a href="#servicios" class="btn btn-secondary">
-                    Conoce Nuestros Servicios
-                </a>
-            </div>
+            <div class="hero-counter"><span id="slideNum">01</span> / 03</div>
+            <h1 class="hero-title">Transformamos tu <em>vision</em> en realidad empresarial</h1>
+            <p class="hero-subtitle">Consultoria estrategica para mujeres emprendedoras y ejecutivas que buscan escalar sus proyectos con impacto.</p>
         </div>
-        <div class="hero-visual">
-            <div class="hero-image-wrapper">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=1000&fit=crop&q=80" alt="Mujer Ejecutiva" class="hero-image">
-            </div>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <span class="stat-number">150+</span>
-                    <span class="stat-label">Proyectos Exitosos</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">95%</span>
-                    <span class="stat-label">Satisfacción</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">16+</span>
-                    <span class="stat-label">Años de Experiencia</span>
-                </div>
-            </div>
+        <div class="hero-nav">
+            <button id="heroPrev">&#8592;</button>
+            <button id="heroNext">&#8594;</button>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="servicios" class="services">
-        <div class="section-header">
-            <p class="section-subtitle">Nuestros Servicios</p>
-            <h2 class="section-title">Soluciones Estratégicas a tu Medida</h2>
-            <p class="section-description">
-                Acompañamiento integral desde la concepción hasta la ejecución de tu proyecto empresarial
-            </p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card fade-in">
-                <div class="service-icon">🚀</div>
-                <h3 class="service-title">Lanzamiento de Proyectos</h3>
-                <p class="service-description">
-                    Estrategia completa para lanzar tu negocio al mercado con impacto. Desde el plan de negocios hasta la estrategia de go-to-market.
-                </p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">📈</div>
-                <h3 class="service-title">Relanzamiento & Rebranding</h3>
-                <p class="service-description">
-                    Revitaliza tu marca y negocio con estrategias de reposicionamiento que conecten con tu nueva audiencia objetivo.
-                </p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">💼</div>
-                <h3 class="service-title">Consultoría Ejecutiva</h3>
-                <p class="service-description">
-                    Asesoría personalizada para ejecutivas y líderes empresariales que buscan optimizar su gestión y resultados.
-                </p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">🎯</div>
-                <h3 class="service-title">Campañas Estratégicas</h3>
-                <p class="service-description">
-                    Diseño y ejecución de campañas de marketing con objetivos medibles y resultados de alto impacto.
-                </p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">💡</div>
-                <h3 class="service-title">Mentoría Empresarial</h3>
-                <p class="service-description">
-                    Acompañamiento continuo para emprendedoras que buscan escalar su negocio con estrategias probadas.
-                </p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">📊</div>
-                <h3 class="service-title">Análisis & Growth</h3>
-                <p class="service-description">
-                    Diagnóstico profundo de tu negocio y plan de crecimiento basado en datos y mejores prácticas.
-                </p>
-            </div>
-        </div>
+    <!-- Statement -->
+    <section class="statement">
+        <p class="statement-text reveal">
+            Creamos <a href="#servicios">estrategias transformadoras</a> que impulsan negocios, personas y marcas hacia adelante. Con mas de 16 anos de experiencia, somos el <a href="#expertise">aliado estrategico</a> que tu empresa necesita.
+        </p>
     </section>
 
-    <!-- Expertise Section -->
-    <section id="expertise" class="expertise">
-        <div class="expertise-content">
-            <div class="expertise-text">
-                <h2>
-                    Experiencia que <span class="highlight">Marca la Diferencia</span>
-                </h2>
-                <p>
-                    Con más de 16 años liderando proyectos empresariales, entendemos los desafíos únicos que enfrentan las mujeres emprendedoras y ejecutivas en el mercado actual.
-                </p>
-                <ul class="expertise-list">
-                    <li class="expertise-item">
-                        <div class="expertise-icon">✨</div>
-                        <div class="expertise-item-text">
-                            <h4>Estrategia Personalizada</h4>
-                            <p>Soluciones únicas diseñadas específicamente para tus objetivos</p>
-                        </div>
-                    </li>
-                    <li class="expertise-item">
-                        <div class="expertise-icon">🎓</div>
-                        <div class="expertise-item-text">
-                            <h4>Metodología Probada</h4>
-                            <p>Frameworks empresariales validados con resultados medibles</p>
-                        </div>
-                    </li>
-                    <li class="expertise-item">
-                        <div class="expertise-icon">🤝</div>
-                        <div class="expertise-item-text">
-                            <h4>Acompañamiento Integral</h4>
-                            <p>Soporte continuo en cada fase de tu proyecto</p>
-                        </div>
-                    </li>
-                    <li class="expertise-item">
-                        <div class="expertise-icon">🌟</div>
-                        <div class="expertise-item-text">
-                            <h4>Red de Networking</h4>
-                            <p>Acceso a una comunidad de líderes y emprendedoras exitosas</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div class="expertise-visual">
-                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&h=1000&fit=crop&q=80" alt="Expertise" class="expertise-image">
-            </div>
+    <!-- Services / Work Grid -->
+    <section id="servicios" class="work-section">
+        <div class="work-section-header">
+            <h2>Servicios Seleccionados</h2>
         </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="proceso" class="process">
-        <div class="section-header">
-            <p class="section-subtitle">Nuestro Proceso</p>
-            <h2 class="section-title">Cómo Trabajamos Contigo</h2>
-            <p class="section-description">
-                Un proceso estructurado y flexible que se adapta a las necesidades de tu proyecto
-            </p>
-        </div>
-        <div class="process-grid">
-            <div class="process-step fade-in">
-                <div class="process-number">1</div>
-                <h3 class="process-title">Diagnóstico</h3>
-                <p class="process-description">
-                    Análisis profundo de tu situación actual, objetivos y oportunidades de mercado.
-                </p>
-            </div>
-            <div class="process-step fade-in">
-                <div class="process-number">2</div>
-                <h3 class="process-title">Estrategia</h3>
-                <p class="process-description">
-                    Desarrollo de un plan estratégico personalizado con objetivos claros y medibles.
-                </p>
-            </div>
-            <div class="process-step fade-in">
-                <div class="process-number">3</div>
-                <h3 class="process-title">Ejecución</h3>
-                <p class="process-description">
-                    Implementación de las estrategias con acompañamiento continuo y ajustes en tiempo real.
-                </p>
-            </div>
-            <div class="process-step fade-in">
-                <div class="process-number">4</div>
-                <h3 class="process-title">Optimización</h3>
-                <p class="process-description">
-                    Monitoreo de resultados y optimización continua para maximizar el impacto.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonios" class="testimonials">
-        <div class="section-header">
-            <p class="section-subtitle">Testimonios</p>
-            <h2 class="section-title">Lo Que Dicen Nuestras Clientas</h2>
-            <p class="section-description">
-                Historias reales de mujeres que han transformado sus negocios con nuestra asesoría
-            </p>
-        </div>
-        <div class="testimonials-grid">
-            <div class="testimonial-card fade-in">
-                <div class="quote-icon">"</div>
-                <p class="testimonial-text">
-                    Grupo Aro fue clave en el relanzamiento de mi empresa. Su enfoque estratégico y comprensión del mercado femenino nos ayudó a triplicar nuestras ventas en 6 meses.
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">MC</div>
-                    <div class="author-info">
-                        <h4>María Castillo</h4>
-                        <p>CEO, Fashion Boutique</p>
+        <div class="work-grid">
+            <div class="work-item reveal">
+                <div class="work-item-inner">
+                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=520&fit=crop&q=80" alt="Lanzamiento de Proyectos" loading="lazy">
+                    <div class="work-item-overlay">
+                        <span class="work-item-tag">Estrategia de Lanzamiento</span>
+                        <h3 class="work-item-title">Lanzamiento de Proyectos</h3>
+                        <p class="work-item-desc">Desde el plan de negocios hasta la estrategia de go-to-market con impacto.</p>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card fade-in">
-                <div class="quote-icon">"</div>
-                <p class="testimonial-text">
-                    La mentoría que recibí me dio la claridad y confianza que necesitaba para expandir mi negocio a nivel internacional. Resultados excepcionales.
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">LG</div>
-                    <div class="author-info">
-                        <h4>Laura Gómez</h4>
-                        <p>Fundadora, Tech Startup</p>
+            <div class="work-item reveal">
+                <div class="work-item-inner">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&h=520&fit=crop&q=80" alt="Relanzamiento y Rebranding" loading="lazy">
+                    <div class="work-item-overlay">
+                        <span class="work-item-tag">Reposicionamiento</span>
+                        <h3 class="work-item-title">Relanzamiento & Rebranding</h3>
+                        <p class="work-item-desc">Revitaliza tu marca con estrategias que conecten con tu nueva audiencia.</p>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card fade-in">
-                <div class="quote-icon">"</div>
-                <p class="testimonial-text">
-                    Su expertise en campañas estratégicas transformó completamente nuestra presencia en el mercado. Profesionalismo y resultados en cada etapa.
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">SV</div>
-                    <div class="author-info">
-                        <h4>Sofía Vargas</h4>
-                        <p>Directora de Marketing</p>
+            <div class="work-item reveal">
+                <div class="work-item-inner">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&h=520&fit=crop&q=80" alt="Consultoria Ejecutiva" loading="lazy">
+                    <div class="work-item-overlay">
+                        <span class="work-item-tag">Consultoria Personalizada</span>
+                        <h3 class="work-item-title">Consultoria Ejecutiva</h3>
+                        <p class="work-item-desc">Asesoria para lideres empresariales que buscan optimizar gestion y resultados.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="work-item reveal">
+                <div class="work-item-inner">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=520&fit=crop&q=80" alt="Campanas Estrategicas" loading="lazy">
+                    <div class="work-item-overlay">
+                        <span class="work-item-tag">Marketing de Alto Impacto</span>
+                        <h3 class="work-item-title">Campanas Estrategicas</h3>
+                        <p class="work-item-desc">Diseno y ejecucion de campanas con objetivos medibles y resultados reales.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="work-item reveal">
+                <div class="work-item-inner">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=520&fit=crop&q=80" alt="Mentoria Empresarial" loading="lazy">
+                    <div class="work-item-overlay">
+                        <span class="work-item-tag">Crecimiento Guiado</span>
+                        <h3 class="work-item-title">Mentoria Empresarial</h3>
+                        <p class="work-item-desc">Acompanamiento continuo para escalar tu negocio con estrategias probadas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="work-item reveal">
+                <div class="work-item-inner">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=520&fit=crop&q=80" alt="Analisis y Growth" loading="lazy">
+                    <div class="work-item-overlay">
+                        <span class="work-item-tag">Data-Driven</span>
+                        <h3 class="work-item-title">Analisis & Growth</h3>
+                        <p class="work-item-desc">Diagnostico profundo y plan de crecimiento basado en datos.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Expertise / About -->
+    <section id="expertise" class="about-section">
+        <div class="about-inner">
+            <div class="about-text reveal">
+                <h2>Experiencia que <em>marca la diferencia</em></h2>
+                <p>Con mas de 16 anos liderando proyectos empresariales, entendemos los desafios unicos que enfrentan las mujeres emprendedoras y ejecutivas en el mercado actual. Nuestro enfoque combina estrategia, creatividad y resultados medibles.</p>
+                <div class="about-stats">
+                    <div>
+                        <div class="about-stat-number">150+</div>
+                        <div class="about-stat-label">Proyectos Exitosos</div>
+                    </div>
+                    <div>
+                        <div class="about-stat-number">95%</div>
+                        <div class="about-stat-label">Satisfaccion</div>
+                    </div>
+                    <div>
+                        <div class="about-stat-number">16+</div>
+                        <div class="about-stat-label">Anos de Experiencia</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image reveal">
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&h=1000&fit=crop&q=80" alt="Expertise" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section id="proceso" class="process-section">
+        <div class="process-inner">
+            <div class="process-header reveal">
+                <h2>Como trabajamos contigo</h2>
+                <p>Un proceso estructurado y flexible que se adapta a las necesidades de tu proyecto</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step reveal">
+                    <div class="process-number">01</div>
+                    <h3 class="process-title">Diagnostico</h3>
+                    <p class="process-description">Analisis profundo de tu situacion actual, objetivos y oportunidades de mercado.</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="process-number">02</div>
+                    <h3 class="process-title">Estrategia</h3>
+                    <p class="process-description">Desarrollo de un plan estrategico personalizado con objetivos claros y medibles.</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="process-number">03</div>
+                    <h3 class="process-title">Ejecucion</h3>
+                    <p class="process-description">Implementacion de las estrategias con acompanamiento continuo y ajustes en tiempo real.</p>
+                </div>
+                <div class="process-step reveal">
+                    <div class="process-number">04</div>
+                    <h3 class="process-title">Optimizacion</h3>
+                    <p class="process-description">Monitoreo de resultados y optimizacion continua para maximizar el impacto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonios" class="testimonials-section">
+        <div class="testimonials-inner">
+            <div class="testimonials-header reveal">
+                <h2>Lo que dicen nuestras clientas</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-quote">&ldquo;</div>
+                    <p class="testimonial-text">Grupo Aro fue clave en el relanzamiento de mi empresa. Su enfoque estrategico y comprension del mercado femenino nos ayudo a triplicar nuestras ventas en 6 meses.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MC</div>
+                        <div class="author-info">
+                            <h4>Maria Castillo</h4>
+                            <p>CEO, Fashion Boutique</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-quote">&ldquo;</div>
+                    <p class="testimonial-text">La mentoria que recibi me dio la claridad y confianza que necesitaba para expandir mi negocio a nivel internacional. Resultados excepcionales.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">LG</div>
+                        <div class="author-info">
+                            <h4>Laura Gomez</h4>
+                            <p>Fundadora, Tech Startup</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-quote">&ldquo;</div>
+                    <p class="testimonial-text">Su expertise en campanas estrategicas transformo completamente nuestra presencia en el mercado. Profesionalismo y resultados en cada etapa.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SV</div>
+                        <div class="author-info">
+                            <h4>Sofia Vargas</h4>
+                            <p>Directora de Marketing</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
     <section class="cta-section">
-        <div class="cta-content">
-            <h2>¿Lista para Transformar tu Proyecto?</h2>
-            <p>
-                Agenda una consulta estratégica gratuita y descubre cómo podemos impulsar tu negocio al siguiente nivel.
-            </p>
+        <div class="cta-content reveal">
+            <h2>Lista para transformar tu <em>proyecto</em>?</h2>
+            <p>Agenda una consulta estrategica gratuita y descubre como podemos impulsar tu negocio al siguiente nivel.</p>
             <div class="cta-buttons">
-                <a href="#contacto" class="btn btn-white">
-                    Agenda tu Consulta Gratuita
-                    <span>→</span>
-                </a>
+                <a href="#contacto" class="btn btn-white">Agenda tu Consulta</a>
+                <a href="https://wa.me/18299420405" target="_blank" rel="noopener noreferrer" class="btn btn-outline">WhatsApp Directo</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contacto" class="contact">
-        <div class="section-header">
-            <p class="section-subtitle">Contacto</p>
-            <h2 class="section-title">Comencemos a Trabajar Juntas</h2>
-            <p class="section-description">
-                Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas
-            </p>
-        </div>
-        <div class="contact-content">
-            <div class="contact-info">
-                <h3>Información de Contacto</h3>
+    <!-- Contact -->
+    <section id="contacto" class="contact-section">
+        <div class="contact-inner">
+            <div class="contact-info reveal">
+                <h2>Comencemos a trabajar juntas</h2>
                 <div class="contact-details">
                     <div class="contact-item">
-                        <div class="contact-item-icon">📧</div>
+                        <div class="contact-item-icon">&#9993;</div>
                         <div class="contact-item-text">
                             <h4>Email</h4>
                             <p><a href="mailto:wendolyn@mynameisaro.com">wendolyn@mynameisaro.com</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-item-icon">📱</div>
+                        <div class="contact-item-icon">&#9742;</div>
                         <div class="contact-item-text">
                             <h4>WhatsApp</h4>
                             <p><a href="https://wa.me/18299420405" target="_blank" rel="noopener noreferrer">+1 (829) 942-0405</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-item-icon">📍</div>
+                        <div class="contact-item-icon">&#9872;</div>
                         <div class="contact-item-text">
-                            <h4>Ubicación</h4>
-                            <p>República Dominicana</p>
+                            <h4>Ubicacion</h4>
+                            <p>Republica Dominicana</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-item-icon">⏰</div>
+                        <div class="contact-item-icon">&#9200;</div>
                         <div class="contact-item-text">
                             <h4>Horario</h4>
                             <p>Lun - Vie: 9:00 AM - 6:00 PM</p>
@@ -1316,7 +1317,7 @@
                     </div>
                 </div>
             </div>
-            <div class="contact-form">
+            <div class="contact-form reveal">
                 <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                     <div class="form-row">
                         <div class="form-group">
@@ -1334,30 +1335,27 @@
                             <input type="email" id="email" name="email" required placeholder="tu@email.com">
                         </div>
                         <div class="form-group">
-                            <label for="telefono">Teléfono *</label>
+                            <label for="telefono">Telefono *</label>
                             <input type="tel" id="telefono" name="telefono" required placeholder="+1 (809) 000-0000">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="servicio">Servicio de Interés *</label>
+                        <label for="servicio">Servicio de Interes *</label>
                         <select id="servicio" name="servicio" required>
                             <option value="">Selecciona un servicio</option>
                             <option value="lanzamiento">Lanzamiento de Proyecto</option>
                             <option value="relanzamiento">Relanzamiento & Rebranding</option>
-                            <option value="consultoria">Consultoría Ejecutiva</option>
-                            <option value="campanas">Campañas Estratégicas</option>
-                            <option value="mentoria">Mentoría Empresarial</option>
-                            <option value="growth">Análisis & Growth</option>
+                            <option value="consultoria">Consultoria Ejecutiva</option>
+                            <option value="campanas">Campanas Estrategicas</option>
+                            <option value="mentoria">Mentoria Empresarial</option>
+                            <option value="growth">Analisis & Growth</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="mensaje">Cuéntanos sobre tu proyecto *</label>
-                        <textarea id="mensaje" name="mensaje" required placeholder="Describe brevemente tu proyecto, objetivos y cómo podemos ayudarte..."></textarea>
+                        <label for="mensaje">Cuentanos sobre tu proyecto *</label>
+                        <textarea id="mensaje" name="mensaje" required placeholder="Describe brevemente tu proyecto, objetivos y como podemos ayudarte..."></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">
-                        Enviar Solicitud de Consulta
-                        <span>→</span>
-                    </button>
+                    <button type="submit" class="btn-submit">Enviar Solicitud de Consulta &rarr;</button>
                 </form>
             </div>
         </div>
@@ -1367,26 +1365,24 @@
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
-                <h3>GRUPO <span>ARO</span></h3>
-                <p>
-                    Asesoría empresarial estratégica para mujeres emprendedoras y ejecutivas que buscan transformar sus proyectos.
-                </p>
+                <h3>GRUPO ARO</h3>
+                <p>Asesoria empresarial estrategica para mujeres emprendedoras y ejecutivas que buscan transformar sus proyectos.</p>
                 <div class="footer-social">
-                    <a href="https://www.instagram.com/mynameisaro/" target="_blank" rel="noopener noreferrer" class="social-link">📷</a>
-                    <a href="https://www.linkedin.com/in/wendolynrodriguez/" target="_blank" rel="noopener noreferrer" class="social-link">💼</a>
-                    <a href="https://wa.me/18299420405" target="_blank" rel="noopener noreferrer" class="social-link">💬</a>
+                    <a href="https://www.instagram.com/mynameisaro/" target="_blank" rel="noopener noreferrer" class="social-link">IG</a>
+                    <a href="https://www.linkedin.com/in/wendolynrodriguez/" target="_blank" rel="noopener noreferrer" class="social-link">LI</a>
+                    <a href="https://wa.me/18299420405" target="_blank" rel="noopener noreferrer" class="social-link">WA</a>
                 </div>
             </div>
-            <div class="footer-section">
+            <div class="footer-col">
                 <h4>Servicios</h4>
                 <ul class="footer-links">
                     <li><a href="#servicios">Lanzamiento de Proyectos</a></li>
                     <li><a href="#servicios">Relanzamiento</a></li>
-                    <li><a href="#servicios">Consultoría Ejecutiva</a></li>
-                    <li><a href="#servicios">Campañas Estratégicas</a></li>
+                    <li><a href="#servicios">Consultoria Ejecutiva</a></li>
+                    <li><a href="#servicios">Campanas Estrategicas</a></li>
                 </ul>
             </div>
-            <div class="footer-section">
+            <div class="footer-col">
                 <h4>Empresa</h4>
                 <ul class="footer-links">
                     <li><a href="#expertise">Sobre Nosotros</a></li>
@@ -1395,117 +1391,96 @@
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </div>
-            <div class="footer-section">
+            <div class="footer-col">
                 <h4>Legal</h4>
                 <ul class="footer-links">
-                    <li><a href="#">Política de Privacidad</a></li>
-                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Politica de Privacidad</a></li>
+                    <li><a href="#">Terminos y Condiciones</a></li>
                     <li><a href="#">Aviso Legal</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Grupo Aro, SRL · Studio Est. 2008 · Todos los derechos reservados</p>
+            <p>&copy; 2025 Grupo Aro, SRL &middot; Studio Est. 2008</p>
+            <p><a href="mailto:wendolyn@mynameisaro.com">Habla con nosotros</a></p>
         </div>
     </footer>
 
+    <!-- Main page scripts -->
     <script>
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+    (function() {
+        // Hero carousel
+        const carousel = document.getElementById('heroCarousel');
+        const slides = carousel.children;
+        const total = slides.length;
+        let current = 0;
+        let autoTimer;
+
+        function goTo(i) {
+            current = (i + total) % total;
+            carousel.style.transform = 'translateX(-' + (current * 100) + '%)';
+            document.getElementById('slideNum').textContent = String(current + 1).padStart(2, '0');
+        }
+
+        document.getElementById('heroNext').addEventListener('click', function() { goTo(current + 1); resetAuto(); });
+        document.getElementById('heroPrev').addEventListener('click', function() { goTo(current - 1); resetAuto(); });
+
+        function resetAuto() { clearInterval(autoTimer); autoTimer = setInterval(function() { goTo(current + 1); }, 5000); }
+        resetAuto();
+
+        // Navbar scroll
+        var navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function() {
+            navbar.classList.toggle('scrolled', window.scrollY > 80);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+            a.addEventListener('click', function(e) {
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
             });
         });
 
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+        // Mobile nav
+        var mobileNav = document.getElementById('mobileNav');
+        document.getElementById('menuBtn').addEventListener('click', function() { mobileNav.classList.add('open'); });
+        document.getElementById('mobileNavClose').addEventListener('click', function() { mobileNav.classList.remove('open'); });
+        mobileNav.querySelectorAll('a').forEach(function(a) {
+            a.addEventListener('click', function() { mobileNav.classList.remove('open'); });
         });
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+        // Reveal on scroll
+        var reveals = document.querySelectorAll('.reveal');
+        var revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) { entry.target.classList.add('visible'); }
             });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Mobile menu
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            const isOpen = navLinks.style.display === 'flex';
-            
-            if (isOpen) {
-                navLinks.style.display = 'none';
-            } else {
-                navLinks.style.display = 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '0';
-                navLinks.style.right = '0';
-                navLinks.style.background = 'rgba(255, 255, 255, 0.98)';
-                navLinks.style.padding = '2rem';
-                navLinks.style.gap = '1.5rem';
-                navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
-            }
-        });
-
-        // Close mobile menu on link click
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 1024) {
-                    navLinks.style.display = 'none';
-                }
-            });
-        });
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+        reveals.forEach(function(el) { revealObserver.observe(el); });
+    })();
     </script>
 
     <!-- ===== WhatsApp AI Chat Widget ===== -->
     <style>
-        /* Floating button */
         #wa-widget {
             position: fixed;
             bottom: 28px;
             right: 28px;
             z-index: 9999;
-            font-family: 'Nunito Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
         }
 
         #wa-bubble {
             width: 64px;
             height: 64px;
-            background: linear-gradient(135deg, #D4A574 0%, #F0D9B5 100%);
+            background: var(--black);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 6px 24px rgba(212,165,116,0.45);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.3);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             position: relative;
             overflow: hidden;
@@ -1513,7 +1488,7 @@
 
         #wa-bubble:hover {
             transform: scale(1.1);
-            box-shadow: 0 10px 32px rgba(212,165,116,0.55);
+            box-shadow: 0 10px 32px rgba(0,0,0,0.4);
         }
 
         #wa-bubble img {
@@ -1523,13 +1498,12 @@
             border-radius: 50%;
         }
 
-        /* Pulse ring */
         #wa-bubble::before {
             content: '';
             position: absolute;
             inset: -6px;
             border-radius: 50%;
-            border: 2.5px solid rgba(212,165,116,0.5);
+            border: 2px solid rgba(212,165,116,0.5);
             animation: wa-pulse 2s ease-out infinite;
             z-index: 1;
         }
@@ -1540,14 +1514,13 @@
             100% { opacity: 0; }
         }
 
-        /* Notification dot */
         #wa-notif {
             position: absolute;
             top: -2px;
             right: -2px;
             width: 18px;
             height: 18px;
-            background: #D4A574;
+            background: var(--accent);
             border-radius: 50%;
             border: 2px solid #fff;
             font-size: 10px;
@@ -1557,6 +1530,7 @@
             align-items: center;
             justify-content: center;
             animation: wa-bounce 0.6s ease 2s both;
+            z-index: 2;
         }
 
         @keyframes wa-bounce {
@@ -1565,14 +1539,13 @@
             100% { transform: scale(1); }
         }
 
-        /* Chat panel */
         #wa-panel {
             position: absolute;
             bottom: 75px;
             right: 0;
             width: 340px;
             background: #fff;
-            border-radius: 20px;
+            border-radius: 16px;
             box-shadow: 0 16px 60px rgba(0,0,0,0.18);
             overflow: hidden;
             display: none;
@@ -1586,13 +1559,10 @@
             to   { opacity: 1; transform: scale(1); }
         }
 
-        #wa-panel.open {
-            display: flex;
-        }
+        #wa-panel.open { display: flex; }
 
-        /* Header */
         #wa-header {
-            background: linear-gradient(135deg, #2A3F54 0%, #D4A574 100%);
+            background: var(--black);
             padding: 1.1rem 1.2rem;
             display: flex;
             align-items: center;
@@ -1604,11 +1574,10 @@
             width: 44px;
             height: 44px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
             flex-shrink: 0;
             overflow: hidden;
         }
@@ -1628,7 +1597,7 @@
         }
 
         #wa-agent-info p {
-            color: rgba(255,255,255,0.82);
+            color: rgba(255,255,255,0.7);
             font-size: 0.78rem;
             margin: 0;
             display: flex;
@@ -1660,19 +1629,17 @@
             transition: background 0.15s;
         }
 
-        #wa-close:hover { background: rgba(0,0,0,0.15); }
+        #wa-close:hover { background: rgba(255,255,255,0.1); }
 
-        /* Promo banner */
         #wa-promo {
-            background: #FFF8F0;
-            border-bottom: 1px solid #F0D9B5;
+            background: #faf8f5;
+            border-bottom: 1px solid var(--gray-200);
             padding: 0.55rem 1rem;
             font-size: 0.78rem;
-            color: #8B5E3C;
+            color: var(--gray-600);
             text-align: center;
         }
 
-        /* Messages area */
         #wa-messages {
             flex: 1;
             max-height: 260px;
@@ -1681,8 +1648,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.65rem;
-            background: #f5f0eb;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a574' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background: var(--gray-50);
         }
 
         .wa-msg {
@@ -1696,15 +1662,15 @@
 
         .wa-msg.bot {
             background: #fff;
-            color: #2d2d2d;
+            color: var(--gray-800);
             align-self: flex-start;
             border-bottom-left-radius: 4px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
         }
 
         .wa-msg.user {
-            background: #d9fdd3;
-            color: #111;
+            background: var(--gray-900);
+            color: #fff;
             align-self: flex-end;
             border-bottom-right-radius: 4px;
         }
@@ -1726,53 +1692,52 @@
             30%            { transform: translateY(-6px); }
         }
 
-        /* CTA button inside messages */
         .wa-cta-btn {
             display: inline-block;
             margin-top: 0.5rem;
             padding: 0.55rem 1.1rem;
-            background: #D4A574;
+            background: var(--black);
             color: #fff;
-            border-radius: 50px;
+            border-radius: 0;
             font-weight: 700;
             font-size: 0.82rem;
             text-decoration: none;
+            letter-spacing: 0.5px;
             transition: background 0.2s;
         }
-        .wa-cta-btn:hover { background: #B8935F; }
+        .wa-cta-btn:hover { background: var(--accent-dark); }
 
-        /* Quick-reply chips */
         #wa-chips {
             display: flex;
             flex-wrap: wrap;
             gap: 0.4rem;
             padding: 0.6rem 0.8rem;
             background: #fff;
-            border-top: 1px solid #f0e8df;
+            border-top: 1px solid var(--gray-200);
         }
 
         .wa-chip {
             padding: 0.35rem 0.8rem;
-            border: 1.5px solid #D4A574;
-            border-radius: 50px;
+            border: 1px solid var(--gray-300);
+            border-radius: 0;
             background: #fff;
-            color: #8B5E3C;
+            color: var(--gray-700);
             font-size: 0.78rem;
             font-weight: 600;
             cursor: pointer;
             transition: background 0.15s, color 0.15s;
             white-space: nowrap;
+            letter-spacing: 0.3px;
         }
-        .wa-chip:hover { background: #D4A574; color: #fff; }
+        .wa-chip:hover { background: var(--black); color: #fff; border-color: var(--black); }
 
-        /* Input row */
         #wa-input-row {
             display: flex;
             align-items: center;
             padding: 0.6rem 0.75rem;
             gap: 0.5rem;
             background: #fff;
-            border-top: 1px solid #f0e8df;
+            border-top: 1px solid var(--gray-200);
         }
 
         #wa-input {
@@ -1781,18 +1746,18 @@
             outline: none;
             font-size: 0.875rem;
             font-family: inherit;
-            color: #333;
-            background: #f5f0eb;
-            border-radius: 50px;
+            color: var(--black);
+            background: var(--gray-50);
+            border-radius: 0;
             padding: 0.55rem 1rem;
         }
 
         #wa-send {
             width: 36px;
             height: 36px;
-            background: #D4A574;
+            background: var(--black);
             border: none;
-            border-radius: 50%;
+            border-radius: 0;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -1800,10 +1765,9 @@
             transition: background 0.2s;
             flex-shrink: 0;
         }
-        #wa-send:hover { background: #B8935F; }
+        #wa-send:hover { background: var(--accent-dark); }
         #wa-send svg { width: 16px; height: 16px; }
 
-        /* Mobile adjustments */
         @media (max-width: 480px) {
             #wa-widget { bottom: 16px; right: 16px; }
             #wa-panel  { width: calc(100vw - 32px); right: 0; }
@@ -1811,33 +1775,31 @@
     </style>
 
     <div id="wa-widget">
-        <!-- Chat panel -->
         <div id="wa-panel" role="dialog" aria-label="Chat de asistencia">
             <div id="wa-header">
                 <div id="wa-avatar"><img src="images/valeria-avatar.jpg" alt="Valeria" /></div>
                 <div id="wa-agent-info">
-                    <h3>Valeria · Grupo ARO</h3>
-                    <p>Asistente de ventas · En línea</p>
+                    <h3>Valeria &middot; Grupo ARO</h3>
+                    <p>Asistente de ventas &middot; En linea</p>
                 </div>
-                <button id="wa-close" aria-label="Cerrar chat">✕</button>
+                <button id="wa-close" aria-label="Cerrar chat">&times;</button>
             </div>
-            <div id="wa-promo">🎁 Primera consulta estratégica <strong>sin costo</strong></div>
+            <div id="wa-promo">Primera consulta estrategica <strong>sin costo</strong></div>
             <div id="wa-messages"></div>
             <div id="wa-chips">
-                <button class="wa-chip" data-msg="¿Cuáles son sus servicios?">Servicios</button>
-                <button class="wa-chip" data-msg="¿Cuánto cuesta?">Precios</button>
-                <button class="wa-chip" data-msg="¿Cómo es el proceso?">Proceso</button>
+                <button class="wa-chip" data-msg="Cuales son sus servicios?">Servicios</button>
+                <button class="wa-chip" data-msg="Cuanto cuesta?">Precios</button>
+                <button class="wa-chip" data-msg="Como es el proceso?">Proceso</button>
                 <button class="wa-chip" data-msg="Quiero agendar una consulta">Agendar</button>
             </div>
             <div id="wa-input-row">
-                <input id="wa-input" type="text" placeholder="Escribe tu consulta…" autocomplete="off" />
+                <input id="wa-input" type="text" placeholder="Escribe tu consulta..." autocomplete="off" />
                 <button id="wa-send" aria-label="Enviar">
                     <svg viewBox="0 0 24 24" fill="white"><path d="M2 21l21-9L2 3v7l15 2-15 2v7z"/></svg>
                 </button>
             </div>
         </div>
 
-        <!-- Floating button -->
         <div id="wa-bubble" role="button" aria-label="Chatea con Valeria" tabindex="0">
             <span id="wa-notif">1</span>
             <img src="images/valeria-avatar.jpg" alt="Valeria - Asistente de ventas" />
@@ -1846,220 +1808,133 @@
 
     <script>
     (function() {
-        // ── Config ──────────────────────────────────────────────
-        const WA_NUMBER = '18299420405';
-        const WA_NAME   = 'Valeria';
+        var WA_NUMBER = '18299420405';
+        var WA_NAME   = 'Valeria';
 
-        // ── Knowledge base (keyword → response) ─────────────────
-        const KB = [
+        var KB = [
             {
-                keys: ['precio','costo','cuánto','cuanto','tarifa','pago','inversión','inversion','plan'],
-                reply: `Nuestros planes están diseñados para distintos momentos de tu empresa:\n\n💼 <b>Estrategia Express</b> – desde $2,500 USD/mes\n🚀 <b>Lanzamiento & Crecimiento</b> – desde $2,500 USD/mes\n👑 <b>Dirección Estratégica</b> – a medida\n\nTodo incluye sesiones 1:1, análisis y plan de acción.`,
+                keys: ['precio','costo','cuanto','tarifa','pago','inversion','plan'],
+                reply: 'Nuestros planes estan disenados para distintos momentos de tu empresa:\n\n<b>Estrategia Express</b> - desde $2,500 USD/mes\n<b>Lanzamiento & Crecimiento</b> - desde $2,500 USD/mes\n<b>Direccion Estrategica</b> - a medida\n\nTodo incluye sesiones 1:1, analisis y plan de accion.',
                 cta: false
             },
             {
-                keys: ['servicio','ofrecen','hacen','ayudan','qué hacen'],
-                reply: `En Grupo ARO te ayudamos a estructurar y escalar tu empresa:\n\n✅ Estrategia empresarial\n✅ Lanzamientos y relanzamientos\n✅ Branding y posicionamiento\n✅ Campañas de alto impacto\n✅ Finanzas y rentabilidad\n\n¿Alguno en especial te llama la atención?`,
+                keys: ['servicio','ofrecen','hacen','ayudan','que hacen'],
+                reply: 'En Grupo ARO te ayudamos a estructurar y escalar tu empresa:\n\nEstrategia empresarial\nLanzamientos y relanzamientos\nBranding y posicionamiento\nCampanas de alto impacto\nFinanzas y rentabilidad\n\nAlguno en especial te llama la atencion?',
                 cta: false
             },
             {
-                keys: ['proceso','como funciona','cómo funciona','pasos','etapas'],
-                reply: `Nuestro proceso tiene 4 etapas:\n\n1️⃣ <b>Diagnóstico</b> – analizamos tu situación actual\n2️⃣ <b>Estrategia</b> – diseñamos tu hoja de ruta\n3️⃣ <b>Implementación</b> – ejecutamos juntas\n4️⃣ <b>Seguimiento</b> – medimos y ajustamos\n\nTodo empieza con una consulta inicial gratuita 🎁`,
+                keys: ['proceso','como funciona','pasos','etapas'],
+                reply: 'Nuestro proceso tiene 4 etapas:\n\n1. <b>Diagnostico</b> - analizamos tu situacion actual\n2. <b>Estrategia</b> - disenamos tu hoja de ruta\n3. <b>Implementacion</b> - ejecutamos juntas\n4. <b>Seguimiento</b> - medimos y ajustamos\n\nTodo empieza con una consulta inicial gratuita.',
                 cta: false
             },
             {
-                keys: ['agendar','consulta','cita','reunión','reunion','quiero empezar','empezar','contratar','hablar'],
-                reply: `¡Perfecto! Me alegra que quieras dar el primer paso 🌟\n\nPuedo conectarte ahora mismo con nuestro equipo para agendar tu consulta estratégica gratuita.`,
+                keys: ['agendar','consulta','cita','reunion','quiero empezar','empezar','contratar','hablar'],
+                reply: 'Perfecto! Me alegra que quieras dar el primer paso.\n\nPuedo conectarte ahora mismo con nuestro equipo para agendar tu consulta estrategica gratuita.',
                 cta: false
             },
             {
                 keys: ['experiencia','clientes','resultados','casos','testimonios'],
-                reply: `Llevamos más de 15 años transformando empresas lideradas por mujeres. Nuestras clientas han logrado:\n\n📈 3x crecimiento en ventas\n💡 Lanzamientos con +80% de conversión\n🏆 Posicionamiento como referentes en su industria\n\n¿Quieres conocer casos específicos de tu sector?`,
+                reply: 'Llevamos mas de 15 anos transformando empresas lideradas por mujeres. Nuestras clientas han logrado:\n\n3x crecimiento en ventas\nLanzamientos con +80% de conversion\nPosicionamiento como referentes en su industria\n\nQuieres conocer casos especificos de tu sector?',
                 cta: false
             },
             {
                 keys: ['hola','hello','buenas','buen dia','buenos dias','buenas tardes','buenas noches','hi'],
-                reply: `¡Hola! Soy ${WA_NAME}, asistente de Grupo ARO 👋\n\n¿En qué puedo ayudarte hoy? Puedo contarte sobre nuestros servicios, precios o ayudarte a agendar tu consulta gratuita.`,
+                reply: 'Hola! Soy ' + WA_NAME + ', asistente de Grupo ARO.\n\nEn que puedo ayudarte hoy? Puedo contarte sobre nuestros servicios, precios o ayudarte a agendar tu consulta gratuita.',
                 cta: false
             },
             {
                 keys: ['gracias','perfecto','ok','listo','entendido'],
-                reply: `¡Con gusto! Recuerda que tu primera consulta es completamente gratuita. Estamos aquí para ayudarte a llevar tu empresa al siguiente nivel 🚀`,
+                reply: 'Con gusto! Recuerda que tu primera consulta es completamente gratuita. Estamos aqui para ayudarte a llevar tu empresa al siguiente nivel.',
                 cta: false
             }
         ];
 
-        const DEFAULT_REPLY = `Entendido, con gusto te ayudo con eso. Para darte la información más precisa, ¿podrías contarme un poco más sobre tu empresa o el reto que enfrentas? También puedes conectarte directamente con nuestro equipo.`;
+        var DEFAULT_REPLY = 'Entendido, con gusto te ayudo con eso. Para darte la informacion mas precisa, podrias contarme un poco mas sobre tu empresa o el reto que enfrentas? Tambien puedes conectarte directamente con nuestro equipo.';
 
         function getBotReply(text) {
-            const t = text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-            for (const entry of KB) {
-                if (entry.keys.some(k => t.includes(k.normalize('NFD').replace(/[\u0300-\u036f]/g, '')))) {
-                    return entry;
+            var t = text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            for (var i = 0; i < KB.length; i++) {
+                var entry = KB[i];
+                for (var j = 0; j < entry.keys.length; j++) {
+                    if (t.indexOf(entry.keys[j].normalize('NFD').replace(/[\u0300-\u036f]/g, '')) !== -1) {
+                        return entry;
+                    }
                 }
             }
-            return { reply: DEFAULT_REPLY, cta: false };
+            return { reply: DEFAULT_REPLY, cta: true };
         }
 
-        function waLink(preMsg) {
-            const msg = encodeURIComponent(preMsg || 'Hola, me interesa conocer más sobre los servicios de Grupo ARO');
-            return `https://wa.me/${WA_NUMBER}?text=${msg}`;
-        }
+        // DOM
+        var panel    = document.getElementById('wa-panel');
+        var bubble   = document.getElementById('wa-bubble');
+        var closeBtn = document.getElementById('wa-close');
+        var msgArea  = document.getElementById('wa-messages');
+        var input    = document.getElementById('wa-input');
+        var sendBtn  = document.getElementById('wa-send');
+        var chips    = document.querySelectorAll('.wa-chip');
+        var notif    = document.getElementById('wa-notif');
 
-        // ── DOM refs ──────────────────────────────────────────────
-        const widget   = document.getElementById('wa-widget');
-        const panel    = document.getElementById('wa-panel');
-        const bubble   = document.getElementById('wa-bubble');
-        const closeBtn = document.getElementById('wa-close');
-        const messages = document.getElementById('wa-messages');
-        const input    = document.getElementById('wa-input');
-        const sendBtn  = document.getElementById('wa-send');
-        const notif    = document.getElementById('wa-notif');
-        const chips    = document.querySelectorAll('.wa-chip');
-
-        let isOpen = false;
-        let msgCount = 0;
-
-        // ── Helpers ───────────────────────────────────────────────
-        function scrollBottom() {
-            messages.scrollTop = messages.scrollHeight;
-        }
-
-        function addMsg(text, role, withCta) {
-            // Remove typing indicator if present
-            const typing = messages.querySelector('.typing');
-            if (typing) typing.remove();
-
-            const div = document.createElement('div');
-            div.className = `wa-msg ${role}`;
-
-            if (role === 'bot') {
-                // Safe DOM rendering: only allow <b> tags and line breaks — no raw innerHTML from any source
-                renderSafe(div, text);
-                if (withCta) {
-                    const link = document.createElement('a');
-                    link.className = 'wa-cta-btn';
-                    link.href = waLink(text.substring(0, 80));
-                    link.target = '_blank';
-                    link.rel = 'noopener noreferrer';
-                    link.textContent = '💬 Continuar por WhatsApp';
-                    const wrap = document.createElement('div');
-                    wrap.appendChild(link);
-                    div.appendChild(document.createElement('br'));
-                    div.appendChild(wrap);
+        function togglePanel() {
+            panel.classList.toggle('open');
+            if (panel.classList.contains('open')) {
+                notif.style.display = 'none';
+                if (msgArea.children.length === 0) {
+                    setTimeout(function() {
+                        addMsg('bot', 'Hola! Soy ' + WA_NAME + ', asistente de Grupo ARO. En que puedo ayudarte hoy?');
+                    }, 400);
                 }
-            } else {
-                div.textContent = text;
+                input.focus();
             }
-
-            messages.appendChild(div);
-            scrollBottom();
-            msgCount++;
         }
 
-        // Safe renderer — soporta <b>text</b>, **text** (markdown) y saltos de línea.
-        // Nunca usa innerHTML con contenido externo.
-        function renderSafe(container, text) {
-            // Normaliza **bold** de markdown a etiquetas internas antes de dividir
-            const normalized = text.replace(/\*\*([^*]+)\*\*/g, '<b>$1</b>');
-            const parts = normalized.split(/(<b>[^<]*<\/b>|\n)/);
-            parts.forEach(part => {
-                if (part === '\n') {
-                    container.appendChild(document.createElement('br'));
-                } else if (/^<b>[^<]*<\/b>$/.test(part)) {
-                    const b = document.createElement('b');
-                    b.textContent = part.slice(3, -4);
-                    container.appendChild(b);
-                } else if (part) {
-                    container.appendChild(document.createTextNode(part));
-                }
-            });
+        bubble.addEventListener('click', togglePanel);
+        bubble.addEventListener('keydown', function(e) { if (e.key === 'Enter') togglePanel(); });
+        closeBtn.addEventListener('click', function() { panel.classList.remove('open'); });
+
+        function addMsg(role, html) {
+            var d = document.createElement('div');
+            d.className = 'wa-msg ' + role;
+            d.innerHTML = html;
+            msgArea.appendChild(d);
+            msgArea.scrollTop = msgArea.scrollHeight;
         }
 
         function showTyping() {
-            const div = document.createElement('div');
-            div.className = 'wa-msg bot typing';
-            for (let i = 0; i < 3; i++) div.appendChild(document.createElement('span'));
-            messages.appendChild(div);
-            scrollBottom();
+            var d = document.createElement('div');
+            d.className = 'wa-msg bot typing';
+            d.id = 'wa-typing';
+            d.innerHTML = '<span></span><span></span><span></span>';
+            msgArea.appendChild(d);
+            msgArea.scrollTop = msgArea.scrollHeight;
         }
 
-        // Historial de conversación para contexto multi-turno
-        const chatHistory = [];
-
-        async function botReply(userText) {
-            showTyping();
-            try {
-                const res = await fetch('/.netlify/functions/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: userText, history: chatHistory.slice(-6) })
-                });
-                if (!res.ok) throw new Error('API ' + res.status);
-                const data = await res.json();
-                if (!data.reply) throw new Error('empty');
-                // Mostrar respuesta y guardar en historial
-                addMsg(data.reply, 'bot', false);
-                chatHistory.push({ role: 'user',  text: userText });
-                chatHistory.push({ role: 'model', text: data.reply });
-            } catch {
-                // Fallback al KB local si el endpoint falla
-                const entry = getBotReply(userText);
-                addMsg(entry.reply, 'bot', entry.cta);
-            }
+        function removeTyping() {
+            var t = document.getElementById('wa-typing');
+            if (t) t.remove();
         }
 
-        function handleSend() {
-            const text = input.value.trim();
-            if (!text) return;
-            addMsg(text, 'user', false);
+        function handleSend(text) {
+            if (!text.trim()) return;
+            addMsg('user', text);
             input.value = '';
-            botReply(text);
+            showTyping();
+            var result = getBotReply(text);
+            setTimeout(function() {
+                removeTyping();
+                var reply = result.reply.replace(/\n/g, '<br>');
+                if (result.cta) {
+                    reply += '<br><a class="wa-cta-btn" href="https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(text) + '" target="_blank" rel="noopener noreferrer">Hablar por WhatsApp</a>';
+                }
+                addMsg('bot', reply);
+            }, 800 + Math.random() * 600);
         }
 
-        // ── Toggle panel ──────────────────────────────────────────
-        function openPanel() {
-            isOpen = true;
-            panel.classList.add('open');
-            if (notif) notif.remove();
-            if (msgCount === 0) {
-                // Welcome message
-                setTimeout(() => {
-                    addMsg(`¡Hola! Soy ${WA_NAME}, tu asistente de Grupo ARO 👋\n\nEstoy aquí para ayudarte a resolver dudas sobre nuestros servicios y acompañarte en el proceso de transformar tu empresa.\n\n¿Por dónde quieres empezar?`, 'bot', false);
-                }, 200);
-            }
-            input.focus();
-        }
-
-        function closePanel() {
-            isOpen = false;
-            panel.classList.remove('open');
-        }
-
-        bubble.addEventListener('click', () => isOpen ? closePanel() : openPanel());
-        bubble.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); isOpen ? closePanel() : openPanel(); } });
-        closeBtn.addEventListener('click', closePanel);
-
-        // ── Input & chips ─────────────────────────────────────────
-        sendBtn.addEventListener('click', handleSend);
-        input.addEventListener('keydown', e => { if (e.key === 'Enter') handleSend(); });
-
-        chips.forEach(chip => {
-            chip.addEventListener('click', () => {
-                const msg = chip.dataset.msg;
-                addMsg(msg, 'user', false);
-                botReply(msg);
-            });
+        sendBtn.addEventListener('click', function() { handleSend(input.value); });
+        input.addEventListener('keydown', function(e) { if (e.key === 'Enter') handleSend(input.value); });
+        chips.forEach(function(chip) {
+            chip.addEventListener('click', function() { handleSend(this.getAttribute('data-msg')); });
         });
-
-        // ── Auto-open greeting after 8s ───────────────────────────
-        setTimeout(() => {
-            if (!isOpen) openPanel();
-        }, 8000);
-
     })();
     </script>
 </body>
-
 </html>
-
