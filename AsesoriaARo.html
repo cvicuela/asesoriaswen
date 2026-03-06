@@ -1497,27 +1497,30 @@
         }
 
         #wa-bubble {
-            width: 60px;
-            height: 60px;
-            background: #25D366;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #D4A574 0%, #F0D9B5 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+            box-shadow: 0 6px 24px rgba(212,165,116,0.45);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             position: relative;
+            overflow: hidden;
         }
 
         #wa-bubble:hover {
             transform: scale(1.1);
-            box-shadow: 0 10px 32px rgba(37,211,102,0.55);
+            box-shadow: 0 10px 32px rgba(212,165,116,0.55);
         }
 
-        #wa-bubble svg {
-            width: 32px;
-            height: 32px;
+        #wa-bubble img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         /* Pulse ring */
@@ -1526,8 +1529,9 @@
             position: absolute;
             inset: -6px;
             border-radius: 50%;
-            border: 2.5px solid rgba(37,211,102,0.5);
+            border: 2.5px solid rgba(212,165,116,0.5);
             animation: wa-pulse 2s ease-out infinite;
+            z-index: 1;
         }
 
         @keyframes wa-pulse {
@@ -1588,7 +1592,7 @@
 
         /* Header */
         #wa-header {
-            background: linear-gradient(135deg, #1a472a 0%, #25D366 100%);
+            background: linear-gradient(135deg, #2A3F54 0%, #D4A574 100%);
             padding: 1.1rem 1.2rem;
             display: flex;
             align-items: center;
@@ -1606,6 +1610,14 @@
             justify-content: center;
             font-size: 1.4rem;
             flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        #wa-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         #wa-agent-info h3 {
@@ -1652,11 +1664,11 @@
 
         /* Promo banner */
         #wa-promo {
-            background: #f0fdf4;
-            border-bottom: 1px solid #d1fae5;
+            background: #FFF8F0;
+            border-bottom: 1px solid #F0D9B5;
             padding: 0.55rem 1rem;
             font-size: 0.78rem;
-            color: #166534;
+            color: #8B5E3C;
             text-align: center;
         }
 
@@ -1719,7 +1731,7 @@
             display: inline-block;
             margin-top: 0.5rem;
             padding: 0.55rem 1.1rem;
-            background: #25D366;
+            background: #D4A574;
             color: #fff;
             border-radius: 50px;
             font-weight: 700;
@@ -1727,7 +1739,7 @@
             text-decoration: none;
             transition: background 0.2s;
         }
-        .wa-cta-btn:hover { background: #1ebe5d; }
+        .wa-cta-btn:hover { background: #B8935F; }
 
         /* Quick-reply chips */
         #wa-chips {
@@ -1778,7 +1790,7 @@
         #wa-send {
             width: 36px;
             height: 36px;
-            background: #25D366;
+            background: #D4A574;
             border: none;
             border-radius: 50%;
             cursor: pointer;
@@ -1788,7 +1800,7 @@
             transition: background 0.2s;
             flex-shrink: 0;
         }
-        #wa-send:hover { background: #1ebe5d; }
+        #wa-send:hover { background: #B8935F; }
         #wa-send svg { width: 16px; height: 16px; }
 
         /* Mobile adjustments */
@@ -1802,7 +1814,7 @@
         <!-- Chat panel -->
         <div id="wa-panel" role="dialog" aria-label="Chat de asistencia">
             <div id="wa-header">
-                <div id="wa-avatar">👩‍💼</div>
+                <div id="wa-avatar"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23F5E6D3'/%3E%3Cellipse cx='50' cy='42' rx='22' ry='24' fill='%23FDEBD0'/%3E%3Cellipse cx='50' cy='38' rx='24' ry='20' fill='%23F4D03F'/%3E%3Cpath d='M26 38c0-13 11-24 24-24s24 11 24 24c0 4-1 7-2 10 1 4 2 12-4 16-2-6-8-6-8-6h-20s-6 0-8 6c-6-4-5-12-4-16-1-3-2-6-2-10z' fill='%23F7DC6F'/%3E%3Cpath d='M30 34c0 0-2 14 2 22 1-4 4-6 8-7h20c4 1 7 3 8 7 4-8 2-22 2-22' fill='%23F4D03F' opacity='0.6'/%3E%3Cellipse cx='50' cy='48' rx='18' ry='20' fill='%23FDEBD0'/%3E%3Cellipse cx='42' cy='45' rx='2.5' ry='2' fill='%23654321'/%3E%3Cellipse cx='58' cy='45' rx='2.5' ry='2' fill='%23654321'/%3E%3Cellipse cx='42' cy='44' rx='3.5' ry='1' fill='%23654321' opacity='0.3'/%3E%3Cellipse cx='58' cy='44' rx='3.5' ry='1' fill='%23654321' opacity='0.3'/%3E%3Cpath d='M46 52 Q50 55 54 52' stroke='%23C0392B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3Cellipse cx='50' cy='49' rx='2' ry='1.5' fill='%23FDEBD0' stroke='%23D4A574' stroke-width='0.5'/%3E%3Cellipse cx='38' cy='48' rx='4' ry='2.5' fill='%23F5B7B1' opacity='0.4'/%3E%3Cellipse cx='62' cy='48' rx='4' ry='2.5' fill='%23F5B7B1' opacity='0.4'/%3E%3Cpath d='M32 64 Q50 58 68 64 L72 100 L28 100 Z' fill='%23D4A574'/%3E%3Cpath d='M42 62 L50 70 L58 62' fill='white' opacity='0.9'/%3E%3Ccircle cx='50' cy='72' r='1.5' fill='%23D4A574'/%3E%3C/svg%3E" alt="Valeria" /></div>
                 <div id="wa-agent-info">
                     <h3>Valeria · Grupo ARO</h3>
                     <p>Asistente de ventas · En línea</p>
@@ -1826,11 +1838,9 @@
         </div>
 
         <!-- Floating button -->
-        <div id="wa-bubble" role="button" aria-label="Abrir chat de WhatsApp" tabindex="0">
+        <div id="wa-bubble" role="button" aria-label="Chatea con Valeria" tabindex="0">
             <span id="wa-notif">1</span>
-            <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23F5E6D3'/%3E%3Cellipse cx='50' cy='42' rx='22' ry='24' fill='%23FDEBD0'/%3E%3Cellipse cx='50' cy='38' rx='24' ry='20' fill='%23F4D03F'/%3E%3Cpath d='M26 38c0-13 11-24 24-24s24 11 24 24c0 4-1 7-2 10 1 4 2 12-4 16-2-6-8-6-8-6h-20s-6 0-8 6c-6-4-5-12-4-16-1-3-2-6-2-10z' fill='%23F7DC6F'/%3E%3Cpath d='M30 34c0 0-2 14 2 22 1-4 4-6 8-7h20c4 1 7 3 8 7 4-8 2-22 2-22' fill='%23F4D03F' opacity='0.6'/%3E%3Cellipse cx='50' cy='48' rx='18' ry='20' fill='%23FDEBD0'/%3E%3Cellipse cx='42' cy='45' rx='2.5' ry='2' fill='%23654321'/%3E%3Cellipse cx='58' cy='45' rx='2.5' ry='2' fill='%23654321'/%3E%3Cellipse cx='42' cy='44' rx='3.5' ry='1' fill='%23654321' opacity='0.3'/%3E%3Cellipse cx='58' cy='44' rx='3.5' ry='1' fill='%23654321' opacity='0.3'/%3E%3Cpath d='M46 52 Q50 55 54 52' stroke='%23C0392B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3Cellipse cx='50' cy='49' rx='2' ry='1.5' fill='%23FDEBD0' stroke='%23D4A574' stroke-width='0.5'/%3E%3Cellipse cx='38' cy='48' rx='4' ry='2.5' fill='%23F5B7B1' opacity='0.4'/%3E%3Cellipse cx='62' cy='48' rx='4' ry='2.5' fill='%23F5B7B1' opacity='0.4'/%3E%3Cpath d='M32 64 Q50 58 68 64 L72 100 L28 100 Z' fill='%23D4A574'/%3E%3Cpath d='M42 62 L50 70 L58 62' fill='white' opacity='0.9'/%3E%3Ccircle cx='50' cy='72' r='1.5' fill='%23D4A574'/%3E%3C/svg%3E" alt="Valeria - Asistente de ventas" />
         </div>
     </div>
 
@@ -1988,7 +1998,8 @@
                 if (!res.ok) throw new Error('API ' + res.status);
                 const data = await res.json();
                 if (!data.reply) throw new Error('empty');
-                // Guardar en historial
+                // Mostrar respuesta y guardar en historial
+                addMsg(data.reply, 'bot', false);
                 chatHistory.push({ role: 'user',  text: userText });
                 chatHistory.push({ role: 'model', text: data.reply });
             } catch {
