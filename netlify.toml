@@ -1,21 +1,8 @@
 [build]
-  publish = "."
+  command = "npm run build"
+  publish = "out"
 
-# Redirige la raiz al archivo principal
-[[redirects]]
-  from = "/"
-  to   = "/AsesoriaARo.html"
-  status = 301
-  force  = true
-
-# Redirige index.html explícito también
-[[redirects]]
-  from = "/index.html"
-  to   = "/AsesoriaARo.html"
-  status = 301
-  force  = true
-
-# Security headers globales (respaldo adicional a _headers)
+# Security headers
 [[headers]]
   for = "/*"
   [headers.values]
@@ -27,6 +14,5 @@
     Strict-Transport-Security  = "max-age=31536000; includeSubDomains; preload"
     Content-Security-Policy    = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://formspree.io"
 
-# Configuración de Netlify Functions con esbuild
 [functions]
   node_bundler = "esbuild"
